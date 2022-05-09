@@ -40,11 +40,6 @@ jobs:
       with:
         python-version: ${{ matrix.python-version }}
 
-    - uses: ./.github/actions/cache
-      with:
-        python-version: ${{ matrix.python-version }}
-        requires: ${{ matrix.requires }}
-
     - name: basic setup
       run: |
         pip --version
@@ -63,6 +58,12 @@ jobs:
       if: matrix.requires == 'oldest'
       run: |
         python .actions/assistant.py replace_oldest_ver
+
+    - name: Cache all
+      uses: ./.github/actions/cache
+      with:
+        python-version: ${{ matrix.python-version }}
+        requires: ${{ matrix.requires }}
 
     - name: Pull checkpoints from S3
       working-directory: ./legacy
