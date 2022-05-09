@@ -18,15 +18,6 @@ inputs:
 runs:
   using: composite
   steps:
-  - name: Install assitant.py's deps
-    shell: bash
-    run: pip install fire requests
-
-  - name: Pin dependencies at minimal versions
-    if: inputs.requires == 'oldest'
-    shell: bash
-    run: python .actions/assistant.py replace_oldest_ver
-
   - name: Set TIME_PERIOD for cache reset interval
     shell: bash
     run: python -c "import time; days = time.time() / 60 / 60 / 24; print(f'TIME_PERIOD={int(days / 7)}')" >> $GITHUB_ENV
