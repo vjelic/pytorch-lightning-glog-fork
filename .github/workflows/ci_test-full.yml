@@ -40,6 +40,11 @@ jobs:
       with:
         python-version: ${{ matrix.python-version }}
 
+    - uses: ./.github/actions/caching
+      with:
+        python-version: ${{ matrix.python-version }}
+        requires: ${{ matrix.requires }}
+
     - name: basic setup
       run: |
         pip --version
