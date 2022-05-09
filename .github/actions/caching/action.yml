@@ -1,6 +1,6 @@
 name: Caching
 
-description: some more complex caching - pip & conda & hf
+description: some more complex caching - pip & conda
 
 inputs:
   python-version:
@@ -56,17 +56,3 @@ runs:
       path: ~/conda_pkgs_dir
       key: py${{ inputs.python-version }}-conda-td${{ env.TIME_PERIOD }}-${{ inputs.offset }}
       restore-keys: py${{ inputs.python-version }}-conda-td${{ env.TIME_PERIOD }}-${{ inputs.offset }}
-
-  # https://huggingface.co/docs/transformers/installation#cache-setup
-  - name: Cache Hugging Face Transformers
-    uses: actions/cache@v3
-    with:
-      path: $TRANSFORMERS_CACHE
-      key: ${{ runner.os }}-cache-transformers
-
-  - name: Post Cache Hugging Face Transformers
-    shell: bash
-    run: |
-      mkdir -p $TRANSFORMERS_CACHE
-      ls -l .
-      ls -l $TRANSFORMERS_CACHE
