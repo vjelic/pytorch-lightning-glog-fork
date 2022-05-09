@@ -40,7 +40,7 @@ jobs:
       with:
         python-version: ${{ matrix.python-version }}
 
-    - uses: ./.github/actions/caching
+    - uses: ./.github/actions/cache
       with:
         python-version: ${{ matrix.python-version }}
         requires: ${{ matrix.requires }}
