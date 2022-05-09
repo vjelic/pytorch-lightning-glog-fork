@@ -25,7 +25,7 @@ runs:
   - name: Pin dependencies at minimal versions
     if: inputs.requires == 'oldest'
     shell: bash
-    run: python .actions/assistant.py set-oldest-versions
+    run: python .actions/assistant.py replace_oldest_ver
 
   - name: Set TIME_PERIOD for cache reset interval
     shell: bash
