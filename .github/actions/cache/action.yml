@@ -31,7 +31,6 @@ runs:
       PWD: $(pwd)
     run: |
       python -c "from pip._internal.locations import USER_CACHE_DIR; print('PIP_CACHE_DIR=' + USER_CACHE_DIR)" >> $GITHUB_ENV
-      python -c "import os ; print('TRANSFORMERS_CACHE=' + os.path.join('$PWD', 'ci-cache_huggingface'))" >> $GITHUB_ENV
 
   - name: Cache pip
     uses: actions/cache@v3
