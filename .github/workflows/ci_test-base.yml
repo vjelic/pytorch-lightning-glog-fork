@@ -37,8 +37,8 @@ jobs:
         python --version
         python -m pip install --upgrade --user pip
         pip --version
-        pip install --requirement requirements.txt --find-links https://download.pytorch.org/whl/cpu/torch_stable.html --upgrade
-        pip install --requirement requirements/test.txt
+        pip install -r requirements.txt --find-links https://download.pytorch.org/whl/cpu/torch_stable.html --upgrade
+        pip install -r requirements/test.txt
         pip list
       shell: bash
 

@@ -132,7 +132,6 @@ class Trainer(
     def __init__(
         self,
         logger: Union[Logger, Iterable[Logger], bool] = True,
-        checkpoint_callback: Optional[bool] = None,
         enable_checkpointing: bool = True,
         callbacks: Optional[Union[List[Callback], Callback]] = None,
         default_root_dir: Optional[str] = None,
@@ -233,13 +232,6 @@ class Trainer(
 
             callbacks: Add a callback or list of callbacks.
                 Default: ``None``.
-
-            checkpoint_callback: If ``True``, enable checkpointing.
-                Default: ``None``.
-
-                .. deprecated:: v1.5
-                    ``checkpoint_callback`` has been deprecated in v1.5 and will be removed in v1.7.
-                    Please consider using ``enable_checkpointing`` instead.
 
             enable_checkpointing: If ``True``, enable checkpointing.
                 It will configure a default ModelCheckpoint callback if there is no user-defined ModelCheckpoint in
@@ -514,7 +506,6 @@ class Trainer(
         # Declare attributes to be set in _callback_connector on_trainer_init
         self._callback_connector.on_trainer_init(
             callbacks,
-            checkpoint_callback,
             enable_checkpointing,
             enable_progress_bar,
             process_position,
@@ -1319,7 +1310,7 @@ class Trainer(
         # reset trainer on this loop and all child loops in case user connected a custom loop
         self._evaluation_loop.trainer = self
 
-        with self.profiler.profile(f"run_{self.state.stage}_evaluation"), _evaluation_context():
+        with self.profiler.profile(f"run_{self.state.stage}_evaluation"), _evaluation_context(self.accelerator):
             eval_loop_results = self._evaluation_loop.run()
 
         # remove the tensors from the eval results
@@ -1335,7 +1326,7 @@ class Trainer(
         self.reset_predict_dataloader(self.lightning_module)
         # reset trainer on this loop and all child loops in case user connected a custom loop
         self.predict_loop.trainer = self
-        with _evaluation_context():
+        with _evaluation_context(self.accelerator):
             return self.predict_loop.run()
 
     def _run_sanity_check(self) -> None:
@@ -1814,13 +1805,13 @@ class Trainer(
             model: The ``LightningModule`` if calling this outside of the trainer scope.
         """
         source = self._data_connector._train_dataloader_source
-        pl_module = self.lightning_module or model
+        pl_module = model or self.lightning_module
         has_step = is_overridden("training_step", pl_module)
         enable_training = self.limit_train_batches > 0
         if not (source.is_defined() and has_step and enable_training):
             return
 
-        self.train_dataloader = self._data_connector._request_dataloader(RunningStage.TRAINING, model=model)
+        self.train_dataloader = self._data_connector._request_dataloader(RunningStage.TRAINING)
 
         if self.overfit_batches > 0:
             self.train_dataloader = self._data_connector._resolve_overfit_batches(
@@ -2801,11 +2792,15 @@ class Trainer(
 
 
 @contextmanager
-def _evaluation_context() -> Generator:
-    # inference mode is not supported with gloo backend (#9431)
+def _evaluation_context(accelerator: Accelerator) -> Generator:
+    # inference mode is not supported with gloo backend (#9431),
+    # and HPU & TPU accelerators.
     context_manager_class = (
         torch.inference_mode
-        if _TORCH_GREATER_EQUAL_1_9 and not (dist.is_initialized() and dist.get_backend() == "gloo")
+        if _TORCH_GREATER_EQUAL_1_9
+        and not (dist.is_initialized() and dist.get_backend() == "gloo")
+        and not isinstance(accelerator, HPUAccelerator)
+        and not isinstance(accelerator, TPUAccelerator)
         else torch.no_grad
     )
     with context_manager_class():
