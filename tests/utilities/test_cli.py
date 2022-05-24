@@ -1555,3 +1555,19 @@ def test_cli_auto_seeding():
         cli = LightningCLI(TestModel, run=False, seed_everything_default=False)
         assert cli.seed_everything_default is False
         assert isinstance(cli.config["seed_everything"], int)
+
+
+def test_cli_trainer_no_callbacks():
+    class MyTrainer(Trainer):
+        def __init__(self):
+            super().__init__()
+
+    class MyCallback(Callback):
+        ...
+
+    match = "MyTrainer` class does not expose the `callbacks"
+    with mock.patch("sys.argv", ["any.py"]), pytest.warns(UserWarning, match=match):
+        cli = LightningCLI(
+            BoringModel, run=False, trainer_class=MyTrainer, trainer_defaults={"callbacks": MyCallback()}
+        )
+    assert not any(isinstance(cb, MyCallback) for cb in cli.trainer.callbacks)
