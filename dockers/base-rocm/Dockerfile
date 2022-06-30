@@ -31,18 +31,6 @@ RUN \
         openmpi-bin \
         ssh \
     && \
-
-# Install python
-    # add-apt-repository ppa:deadsnakes/ppa && \
-    # apt-get install -y \
-    #     python${PYTHON_VERSION} \
-    #     python${PYTHON_VERSION}-distutils \
-    #     python${PYTHON_VERSION}-dev \
-    # && \
-
-    # update-alternatives --install /usr/bin/python${PYTHON_VERSION%%.*} python${PYTHON_VERSION%%.*} /usr/bin/python${PYTHON_VERSION} 1 && \
-    # update-alternatives --install /usr/bin/python python /usr/bin/python${PYTHON_VERSION} 1 && \
-
 # Cleaning
     apt-get autoremove -y && \
     apt-get clean && \
@@ -79,38 +67,11 @@ RUN \
     make && \
     make install && \
     cmake  --version
-
-# ENV \
-#     HOROVOD_CUDA_HOME=$CUDA_TOOLKIT_ROOT_DIR \
-#     HOROVOD_GPU_OPERATIONS=NCCL \
-#     HOROVOD_WITH_PYTORCH=1 \
-#     HOROVOD_WITHOUT_TENSORFLOW=1 \
-#     HOROVOD_WITHOUT_MXNET=1 \
-#     HOROVOD_WITH_GLOO=1 \
-#     HOROVOD_WITH_MPI=1
-
 # RUN \
-#     # CUDA 10.2 doesn't support ampere architecture (8.0).
-#     if [[ "$CUDA_VERSION" < "11.0" ]]; then export TORCH_CUDA_ARCH_LIST=${TORCH_CUDA_ARCH_LIST//";8.0"/}; echo $TORCH_CUDA_ARCH_LIST; fi && \
-#     HOROVOD_BUILD_CUDA_CC_LIST=${TORCH_CUDA_ARCH_LIST//";"/","} && \
-#     export HOROVOD_BUILD_CUDA_CC_LIST=${HOROVOD_BUILD_CUDA_CC_LIST//"."/""} && \
-#     echo $HOROVOD_BUILD_CUDA_CC_LIST && \
-#     cmake --version && \
-#     pip install --no-cache-dir -r ./requirements/strategies.txt && \
-#     horovodrun --check-build
-
-
-# RUN \
-#     # install NVIDIA apex
+#     # install ROCM apex
 #     pip install -v --disable-pip-version-check --no-cache-dir --global-option="--cpp_ext" --global-option="--cuda_ext" https://github.com/NVIDIA/apex/archive/refs/heads/master.zip && \
 #     python -c "from apex import amp"
 
-# RUN \
-#     # install Bagua
-#     CUDA_VERSION_MM=$(python -c "print(''.join('$CUDA_VERSION'.split('.')[:2]))") && \
-#     pip install "bagua-cuda$CUDA_VERSION_MM==0.9.0" && \
-#     python -c "import bagua_core; bagua_core.install_deps()" && \
-#     python -c "import bagua; print(bagua.__version__)"
 
 # COPY requirements/check-avail-extras.py check-avail-extras.py
 # COPY requirements/check-avail-strategies.py check-avail-strategies.py
