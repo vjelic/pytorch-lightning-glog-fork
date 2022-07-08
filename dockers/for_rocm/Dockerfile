@@ -21,7 +21,7 @@ pip install -U jsonargparse[signatures] && \
 #for flash 
 python -m pip install urllib3 && \ 
 #for bolts and transformers
-pip uninstall protobuf && \
+#pip uninstall protobuf && \
 pip install protobuf==3.9.2 && \
 cd lightning && \ 
 python setup.py install 
