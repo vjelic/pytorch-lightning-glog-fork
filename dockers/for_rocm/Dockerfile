@@ -8,28 +8,20 @@ git clone https://github.com/pallets/click.git && \
 cd click && \
 python setup.py install && \ 
 cd .. && \
-git clone https://github.com/seperman/deepdiff.git && \
-cd deepdiff && \
-python setup.py install && \
-cd .. && \
-# git clone https://github.com/tiangolo/fastapi.git && \ 
-# cd fastapi && \ 
-# python setup.py install && \ 
-# cd .. && \
+pip install deepdiff && \
 pip install fastapi && \
 pip install lightning-cloud && \
-git clone https://github.com/pallets/jinja.git && \ 
-cd jinja && \ 
-python setup.py install && \ 
-cd .. && \ 
+pip install -U Jinja2 && \
 pip install starsessions && \ 
 pip uninstall fsspec && \ 
 pip install fsspec==2022.1.0 && \ 
-git clone https://github.com/omni-us/jsonargparse.git && \ 
-cd jsonargparse && \ 
-python setup.py install && \ 
-cd .. && \ 
+pip install jsonargparse && \
 #needs docstring_parser-0.14.1
 pip install -U jsonargparse[signatures] && \
+#for flash 
+python -m pip install urllib3 && \ 
+#for bolts and transformers
+pip uninstall protobuf && \
+pip install protobuf==3.9.2 && \
 cd lightning && \ 
 python setup.py install 
