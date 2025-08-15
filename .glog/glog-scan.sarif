@@ -1,0 +1,228 @@
+{
+  "version": "2.1.0",
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "Glog.AI",
+          "organization": "Glog.AI",
+          "fullName": "Glog, Making software more secure",
+          "version": "1.0.0",
+          "semanticVersion": "1.0.0",
+          "informationUri": "https://www.glog.ai",
+          "rules": [
+            {
+              "id": "glog-bd67fce0-c183-4f22-8b17-e1896680c670",
+              "help": {
+                "text": "",
+                "markdown": "## Description\n\nThe `shell=True` subprocess call security vulnerability in Python occurs when a program allows for the execution of shell commands that can be manipulated to perform unintended actions. This is a form of injection attack, where an attacker can inject malicious code or commands into the program. In the provided code example, `call(\" \".join(joint_cmd), shell=True)`, the `shell=True` argument allows for the execution of shell commands, which can be exploited if `joint_cmd` can be manipulated by an attacker.\n\n## Mitigation Advice\n\nTo mitigate this vulnerability, avoid using `shell=True` in subprocess calls whenever possible. If shell commands must be used, ensure that user input is properly sanitized and validated to prevent injection attacks. \n\n## Source Code Fix Recommendation\n\nInstead of using `shell=True`, use a list of arguments for the subprocess call. This way, the command and its arguments are passed to the system call directly, which avoids shell interpretation.\n\nHere is a fixed version of the provided code:\n\n```python\nfrom subprocess import call\n\n# Assuming joint_cmd is a list of command and its arguments\nresult = call(joint_cmd)\n```\n\n## Library Dependencies\n\nThe code example requires the `subprocess` library, which is included in the standard Python library.\n\n## References\n\n- [OWASP Command Injection](https://owasp.org/www-community/attacks/Command_Injection)\n- [CWE-78: Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection')](https://cwe.mitre.org/data/definitions/78.html)"
+              },
+              "properties": {
+                "tags": [
+                  "B602"
+                ]
+              }
+            },
+            {
+              "id": "glog-85a25f82-b21f-4e7a-8a68-4aff7d2473e6",
+              "help": {
+                "text": "",
+                "markdown": "## Description\n\nPotential Interface Binding Vulnerability in Python refers to a situation where a server is configured to listen on all interfaces (0.0.0.0), including the public one. This could potentially expose the server to the internet, making it vulnerable to attacks. This is especially risky if the server is running with elevated privileges or if it's running a service that has known vulnerabilities.\n\n## Mitigation Advice\n\nTo mitigate this vulnerability, it is recommended to bind the server to localhost (127.0.0.1) or to a specific network interface that is not publicly accessible. This will ensure that the server is only accessible from the local machine or from a specific network, reducing the attack surface.\n\n## Source Code Fix Recommendation\n\nChange the `DEFAULT_HOST` value from \"0.0.0.0\" to \"127.0.0.1\" or to the IP address of a specific, non-public network interface.\n\n```python\nDEFAULT_HOST: str = \"127.0.0.1\"\n```\n\n## Library Dependencies\n\nThe code example does not require any specific library dependencies to execute properly.\n\n## References\n\n- [CWE-284: Improper Access Control](https://cwe.mitre.org/data/definitions/284.html)"
+              },
+              "properties": {
+                "tags": [
+                  "B104"
+                ]
+              }
+            },
+            {
+              "id": "glog-4271bbc2-cfe3-4001-9c91-48486944605c",
+              "help": {
+                "text": "",
+                "markdown": "## Description\n\nThe `urllib.request.urlretrieve(url, fpath)` function in Python's urllib library is used to retrieve a file from a given URL and store it in a local file. This function is vulnerable to a security issue where it does not validate or sanitize the URL scheme. This means that an attacker can provide a URL with a malicious scheme (like file:// or data://) that can lead to unwanted behavior, such as reading local files or executing arbitrary commands.\n\n## Mitigation Advice\n\nTo mitigate this vulnerability, you should always validate and sanitize any URLs that you pass to `urlretrieve()`. This includes checking the URL scheme and ensuring that it is one of the permitted schemes (like http:// or https://). You should also be wary of any URLs that are provided by untrusted sources, such as user input or external services.\n\n## Source Code Fix Recommendation\n\nHere is a simple way to check the URL scheme before passing it to `urlretrieve()`:\n\n```python\nfrom urllib.parse import urlparse\nimport urllib.request\n\ndef safe_urlretrieve(url, fpath):\n    scheme = urlparse(url).scheme\n    if scheme not in ['http', 'https']:\n        raise ValueError('Invalid URL scheme: {}'.format(scheme))\n    urllib.request.urlretrieve(url, fpath)\n```\n\nIn this code, `urlparse()` is used to parse the URL and extract the scheme. If the scheme is not 'http' or 'https', a `ValueError` is raised.\n\n## Library Dependencies\n\nThe code example requires the following Python standard libraries:\n\n- urllib.parse\n- urllib.request\n\n## References\n\n- [CWE-918: Server-Side Request Forgery (SSRF)](https://cwe.mitre.org/data/definitions/918.html)\n\nPlease note that the CWE link refers to a more general class of vulnerabilities (Server-Side Request Forgery), but it includes the issue described here (unvalidated URL schemes leading to unwanted behavior)."
+              },
+              "properties": {
+                "tags": [
+                  "B310"
+                ]
+              }
+            },
+            {
+              "id": "glog-d7c39c4e-c503-4379-9d6c-aef25778955a",
+              "help": {
+                "text": "",
+                "markdown": "## Description\n\nPotential Interface Binding Vulnerability in Python refers to a situation where a server is configured to listen on all interfaces (0.0.0.0), including the public one. This could potentially expose the server to the internet, making it vulnerable to attacks. This vulnerability is often a result of insecure default configurations or oversight during the setup process.\n\n## Mitigation Advice\n\nTo mitigate this vulnerability, it is recommended to bind the server to localhost (127.0.0.1) or a specific IP address that is not publicly accessible. This ensures that the server is only accessible from the local machine or a specific network, reducing the attack surface.\n\n## Source Code Fix Recommendation\n\nInstead of:\n\n```python\nif \"0.0.0.0\" in self._host:\n```\n\nYou should bind the server to localhost or a specific IP:\n\n```python\nif \"127.0.0.1\" in self._host:\n```\n\nOr:\n\n```python\nif \"<specific-ip>\" in self._host:\n```\n\n## Library Dependencies\n\nThe code example does not provide enough context to determine the specific library dependencies. However, it is likely that it requires a web server library such as Flask or Django.\n\n## OWASP Resources\n\n\n## Common Weakness Enumeration (CWE)\n\n- [CWE-284: Improper Access Control](https://cwe.mitre.org/data/definitions/284.html)\n- [CWE-200: Information Exposure](https://cwe.mitre.org/data/definitions/200.html)\n\nPlease note that the links provided are active and accessible for anonymous users at the time of writing this report."
+              },
+              "properties": {
+                "tags": [
+                  "B104"
+                ]
+              }
+            }
+          ],
+          "language": "en-US",
+          "contents": [
+            "localizedData",
+            "nonLocalizedData"
+          ],
+          "isComprehensive": false
+        }
+      },
+      "language": "en-US",
+      "results": [
+        {
+          "ruleId": "glog-bd67fce0-c183-4f22-8b17-e1896680c670",
+          "kind": "fail",
+          "level": "error",
+          "message": {
+            "text": "\"Shell=True Subprocess Call Security Vulnerability Detected\""
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "pytorch_lightning/trainer/connectors/signal_connector.py"
+                },
+                "region": {
+                  "startLine": 89,
+                  "startColumn": 26,
+                  "endLine": 89,
+                  "endColumn": 63,
+                  "snippet": {
+                    "text": "                result = call(\" \".join(joint_cmd), shell=True)\n"
+                  }
+                },
+                "contextRegion": {
+                  "startLine": 88,
+                  "endLine": 90,
+                  "snippet": {
+                    "text": "                joint_cmd = [str(x) for x in cmd]\n                result = call(\" \".join(joint_cmd), shell=True)\n\n"
+                  }
+                }
+              }
+            }
+          ],
+          "properties": {
+            "issue_severity": "HIGH",
+            "issue_confidence": "HIGH"
+          }
+        },
+        {
+          "ruleId": "glog-85a25f82-b21f-4e7a-8a68-4aff7d2473e6",
+          "kind": "fail",
+          "level": "warning",
+          "message": {
+            "text": "Potential Interface Binding Vulnerability"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "pytorch_lightning/strategies/collaborative.py"
+                },
+                "region": {
+                  "startLine": 374,
+                  "startColumn": 25,
+                  "endLine": 374,
+                  "endColumn": 34,
+                  "snippet": {
+                    "text": "    DEFAULT_HOST: str = \"0.0.0.0\"\n"
+                  }
+                },
+                "contextRegion": {
+                  "startLine": 373,
+                  "endLine": 375,
+                  "snippet": {
+                    "text": "    PORT_ENV: str = \"PL_PORT\"\n    DEFAULT_HOST: str = \"0.0.0.0\"\n    DEFAULT_PORT: int = 1440\n"
+                  }
+                }
+              }
+            }
+          ],
+          "properties": {
+            "issue_severity": "MEDIUM",
+            "issue_confidence": "MEDIUM"
+          }
+        },
+        {
+          "ruleId": "glog-4271bbc2-cfe3-4001-9c91-48486944605c",
+          "kind": "fail",
+          "level": "warning",
+          "message": {
+            "text": "\"Vulnerability in URL Audit for Permitted Schemes\""
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "pl_examples/basic_examples/mnist_datamodule.py"
+                },
+                "region": {
+                  "startLine": 97,
+                  "startColumn": 13,
+                  "endLine": 97,
+                  "endColumn": 51,
+                  "snippet": {
+                    "text": "            urllib.request.urlretrieve(url, fpath)\n"
+                  }
+                },
+                "contextRegion": {
+                  "startLine": 96,
+                  "endLine": 98,
+                  "snippet": {
+                    "text": "            fpath = os.path.join(data_folder, os.path.basename(url))\n            urllib.request.urlretrieve(url, fpath)\n\n"
+                  }
+                }
+              }
+            }
+          ],
+          "properties": {
+            "issue_severity": "MEDIUM",
+            "issue_confidence": "HIGH"
+          }
+        },
+        {
+          "ruleId": "glog-d7c39c4e-c503-4379-9d6c-aef25778955a",
+          "kind": "fail",
+          "level": "warning",
+          "message": {
+            "text": "Potential Interface Binding Vulnerability"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "pytorch_lightning/strategies/collaborative.py"
+                },
+                "region": {
+                  "startLine": 456,
+                  "startColumn": 12,
+                  "endLine": 456,
+                  "endColumn": 21,
+                  "snippet": {
+                    "text": "        if \"0.0.0.0\" in self._host:\n"
+                  }
+                },
+                "contextRegion": {
+                  "startLine": 455,
+                  "endLine": 457,
+                  "snippet": {
+                    "text": "        resolved_host = self._host\n        if \"0.0.0.0\" in self._host:\n            # use the visible multi-addresses to figure out the IP that has been exposed\n"
+                  }
+                }
+              }
+            }
+          ],
+          "properties": {
+            "issue_severity": "MEDIUM",
+            "issue_confidence": "MEDIUM"
+          }
+        }
+      ],
+      "newlineSequences": [
+        "\r\n",
+        "\n"
+      ]
+    }
+  ]
+}
