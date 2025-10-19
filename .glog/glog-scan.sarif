@@ -12,54 +12,6 @@
           "informationUri": "https://www.glog.ai",
           "rules": [
             {
-              "id": "e4d1eb81-d911-3332-ad01-47da2f5d7b66",
-              "name": "resources.rules.missing-image-version",
-              "shortDescription": {
-                "text": "Opengrep Finding: resources.rules.missing-image-version"
-              },
-              "fullDescription": {
-                "text": "Images should be tagged with an explicit version to produce deterministic container images."
-              },
-              "defaultConfiguration": {
-                "enabled": true,
-                "level": "warning"
-              },
-              "help": {
-                "text": "Images should be tagged with an explicit version to produce deterministic container images.\n💎 Enable cross-file analysis and Pro rules for free at sg.run/pro",
-                "markdown": "Images should be tagged with an explicit version to produce deterministic container images.\n\n#### 💎 Enable cross-file analysis and Pro rules for free at <a href='https://sg.run/pro'>sg.run/pro</a>\n\n<b>References:</b>\n - [https://github.com/hadolint/hadolint/wiki/DL3006](https://github.com/hadolint/hadolint/wiki/DL3006)\n"
-              },
-              "properties": {
-                "precision": "very-high",
-                "tags": [
-                  "resources.rules.missing-image-version"
-                ]
-              }
-            },
-            {
-              "id": "6dc48d91-aed0-3e8c-b7e8-0bd3fd0e900d",
-              "name": "resources.rules.dlint-catastrophic-redos",
-              "shortDescription": {
-                "text": "Opengrep Finding: resources.rules.dlint-catastrophic-redos"
-              },
-              "fullDescription": {
-                "text": "Regex `$X` may be vulnerable to catastrophic backtracking, which may lead to denial of service attacks. (This rule only matches regex usage, not actual REDoS patterns. For full detection, use Semgrep Pro Engine.)"
-              },
-              "defaultConfiguration": {
-                "enabled": true,
-                "level": "error"
-              },
-              "help": {
-                "text": "Regex `$X` may be vulnerable to catastrophic backtracking, which may lead to denial of service attacks. (This rule only matches regex usage, not actual REDoS patterns. For full detection, use Semgrep Pro Engine.)\n💎 Enable cross-file analysis and Pro rules for free at sg.run/pro",
-                "markdown": "Regex `$X` may be vulnerable to catastrophic backtracking, which may lead to denial of service attacks. (This rule only matches regex usage, not actual REDoS patterns. For full detection, use Semgrep Pro Engine.)\n\n#### 💎 Enable cross-file analysis and Pro rules for free at <a href='https://sg.run/pro'>sg.run/pro</a>\n\n<b>References:</b>\n - [https://r2c.dev/blog/2020/finding-python-redos-bugs-at-scale-using-dlint-and-r2c/](https://r2c.dev/blog/2020/finding-python-redos-bugs-at-scale-using-dlint-and-r2c/)\n - [https://r2c.dev/blog/2020/improving-redos-detection-with-dlint-and-r2c/](https://r2c.dev/blog/2020/improving-redos-detection-with-dlint-and-r2c/)\n"
-              },
-              "properties": {
-                "precision": "very-high",
-                "tags": [
-                  "resources.rules.dlint-catastrophic-redos"
-                ]
-              }
-            },
-            {
               "id": "99f64997-2928-35ab-a497-4ff2af25645c",
               "name": "resources.rules.missing-pip-no-cache-dir",
               "shortDescription": {
@@ -108,26 +60,50 @@
               }
             },
             {
-              "id": "e4b3d8c8-a5d3-3299-ae1b-e09ba6e0f34f",
-              "name": "resources.rules.use-workdir",
+              "id": "6dc48d91-aed0-3e8c-b7e8-0bd3fd0e900d",
+              "name": "resources.rules.dlint-catastrophic-redos",
               "shortDescription": {
-                "text": "Opengrep Finding: resources.rules.use-workdir"
+                "text": "Opengrep Finding: resources.rules.dlint-catastrophic-redos"
               },
               "fullDescription": {
-                "text": "Use 'WORKDIR' instead of 'RUN cd ...'. Using 'RUN cd ...' may not work as expected in a conatiner."
+                "text": "Regex `$X` may be vulnerable to catastrophic backtracking, which may lead to denial of service attacks. (This rule only matches regex usage, not actual REDoS patterns. For full detection, use Semgrep Pro Engine.)"
+              },
+              "defaultConfiguration": {
+                "enabled": true,
+                "level": "error"
+              },
+              "help": {
+                "text": "Regex `$X` may be vulnerable to catastrophic backtracking, which may lead to denial of service attacks. (This rule only matches regex usage, not actual REDoS patterns. For full detection, use Semgrep Pro Engine.)\n💎 Enable cross-file analysis and Pro rules for free at sg.run/pro",
+                "markdown": "Regex `$X` may be vulnerable to catastrophic backtracking, which may lead to denial of service attacks. (This rule only matches regex usage, not actual REDoS patterns. For full detection, use Semgrep Pro Engine.)\n\n#### 💎 Enable cross-file analysis and Pro rules for free at <a href='https://sg.run/pro'>sg.run/pro</a>\n\n<b>References:</b>\n - [https://r2c.dev/blog/2020/finding-python-redos-bugs-at-scale-using-dlint-and-r2c/](https://r2c.dev/blog/2020/finding-python-redos-bugs-at-scale-using-dlint-and-r2c/)\n - [https://r2c.dev/blog/2020/improving-redos-detection-with-dlint-and-r2c/](https://r2c.dev/blog/2020/improving-redos-detection-with-dlint-and-r2c/)\n"
+              },
+              "properties": {
+                "precision": "very-high",
+                "tags": [
+                  "resources.rules.dlint-catastrophic-redos"
+                ]
+              }
+            },
+            {
+              "id": "e4d1eb81-d911-3332-ad01-47da2f5d7b66",
+              "name": "resources.rules.missing-image-version",
+              "shortDescription": {
+                "text": "Opengrep Finding: resources.rules.missing-image-version"
+              },
+              "fullDescription": {
+                "text": "Images should be tagged with an explicit version to produce deterministic container images."
               },
               "defaultConfiguration": {
                 "enabled": true,
                 "level": "warning"
               },
               "help": {
-                "text": "Use 'WORKDIR' instead of 'RUN cd ...'. Using 'RUN cd ...' may not work as expected in a conatiner.\n💎 Enable cross-file analysis and Pro rules for free at sg.run/pro",
-                "markdown": "Use 'WORKDIR' instead of 'RUN cd ...'. Using 'RUN cd ...' may not work as expected in a conatiner.\n\n#### 💎 Enable cross-file analysis and Pro rules for free at <a href='https://sg.run/pro'>sg.run/pro</a>\n\n<b>References:</b>\n - [https://github.com/hadolint/hadolint/wiki/DL3003](https://github.com/hadolint/hadolint/wiki/DL3003)\n"
+                "text": "Images should be tagged with an explicit version to produce deterministic container images.\n💎 Enable cross-file analysis and Pro rules for free at sg.run/pro",
+                "markdown": "Images should be tagged with an explicit version to produce deterministic container images.\n\n#### 💎 Enable cross-file analysis and Pro rules for free at <a href='https://sg.run/pro'>sg.run/pro</a>\n\n<b>References:</b>\n - [https://github.com/hadolint/hadolint/wiki/DL3006](https://github.com/hadolint/hadolint/wiki/DL3006)\n"
               },
               "properties": {
                 "precision": "very-high",
                 "tags": [
-                  "resources.rules.use-workdir"
+                  "resources.rules.missing-image-version"
                 ]
               }
             },
@@ -152,6 +128,30 @@
                 "precision": "very-high",
                 "tags": [
                   "resources.rules.missing-image-version"
+                ]
+              }
+            },
+            {
+              "id": "e4b3d8c8-a5d3-3299-ae1b-e09ba6e0f34f",
+              "name": "resources.rules.use-workdir",
+              "shortDescription": {
+                "text": "Opengrep Finding: resources.rules.use-workdir"
+              },
+              "fullDescription": {
+                "text": "Use 'WORKDIR' instead of 'RUN cd ...'. Using 'RUN cd ...' may not work as expected in a conatiner."
+              },
+              "defaultConfiguration": {
+                "enabled": true,
+                "level": "warning"
+              },
+              "help": {
+                "text": "Use 'WORKDIR' instead of 'RUN cd ...'. Using 'RUN cd ...' may not work as expected in a conatiner.\n💎 Enable cross-file analysis and Pro rules for free at sg.run/pro",
+                "markdown": "Use 'WORKDIR' instead of 'RUN cd ...'. Using 'RUN cd ...' may not work as expected in a conatiner.\n\n#### 💎 Enable cross-file analysis and Pro rules for free at <a href='https://sg.run/pro'>sg.run/pro</a>\n\n<b>References:</b>\n - [https://github.com/hadolint/hadolint/wiki/DL3003](https://github.com/hadolint/hadolint/wiki/DL3003)\n"
+              },
+              "properties": {
+                "precision": "very-high",
+                "tags": [
+                  "resources.rules.use-workdir"
                 ]
               }
             },
@@ -204,30 +204,6 @@
               }
             },
             {
-              "id": "d5b3270d-2b3a-3285-99a5-2ab7fe7fc7e5",
-              "name": "resources.rules.remove-package-cache",
-              "shortDescription": {
-                "text": "Opengrep Finding: resources.rules.remove-package-cache"
-              },
-              "fullDescription": {
-                "text": "The package cache was not deleted after running 'apt-get update', which increases the size of the image. Remove the package cache by appending '&& apt-get clean' at the end of apt-get command chain."
-              },
-              "defaultConfiguration": {
-                "enabled": true,
-                "level": "warning"
-              },
-              "help": {
-                "text": "The package cache was not deleted after running 'apt-get update', which increases the size of the image. Remove the package cache by appending '&& apt-get clean' at the end of apt-get command chain.\n💎 Enable cross-file analysis and Pro rules for free at sg.run/pro",
-                "markdown": "The package cache was not deleted after running 'apt-get update', which increases the size of the image. Remove the package cache by appending '&& apt-get clean' at the end of apt-get command chain.\n\n#### 💎 Enable cross-file analysis and Pro rules for free at <a href='https://sg.run/pro'>sg.run/pro</a>\n\n<b>References:</b>\n - [https://github.com/hadolint/hadolint/wiki/DL3009](https://github.com/hadolint/hadolint/wiki/DL3009)\n"
-              },
-              "properties": {
-                "precision": "very-high",
-                "tags": [
-                  "resources.rules.remove-package-cache"
-                ]
-              }
-            },
-            {
               "id": "28617d71-8776-3ac9-967e-ee188e1fb1a8",
               "name": "resources.rules.missing-image-version",
               "shortDescription": {
@@ -248,6 +224,30 @@
                 "precision": "very-high",
                 "tags": [
                   "resources.rules.missing-image-version"
+                ]
+              }
+            },
+            {
+              "id": "d5b3270d-2b3a-3285-99a5-2ab7fe7fc7e5",
+              "name": "resources.rules.remove-package-cache",
+              "shortDescription": {
+                "text": "Opengrep Finding: resources.rules.remove-package-cache"
+              },
+              "fullDescription": {
+                "text": "The package cache was not deleted after running 'apt-get update', which increases the size of the image. Remove the package cache by appending '&& apt-get clean' at the end of apt-get command chain."
+              },
+              "defaultConfiguration": {
+                "enabled": true,
+                "level": "warning"
+              },
+              "help": {
+                "text": "The package cache was not deleted after running 'apt-get update', which increases the size of the image. Remove the package cache by appending '&& apt-get clean' at the end of apt-get command chain.\n💎 Enable cross-file analysis and Pro rules for free at sg.run/pro",
+                "markdown": "The package cache was not deleted after running 'apt-get update', which increases the size of the image. Remove the package cache by appending '&& apt-get clean' at the end of apt-get command chain.\n\n#### 💎 Enable cross-file analysis and Pro rules for free at <a href='https://sg.run/pro'>sg.run/pro</a>\n\n<b>References:</b>\n - [https://github.com/hadolint/hadolint/wiki/DL3009](https://github.com/hadolint/hadolint/wiki/DL3009)\n"
+              },
+              "properties": {
+                "precision": "very-high",
+                "tags": [
+                  "resources.rules.remove-package-cache"
                 ]
               }
             },
@@ -300,6 +300,30 @@
               }
             },
             {
+              "id": "2063d2ef-5298-3a14-9485-f83f698873bd",
+              "name": "resources.rules.missing-pip-no-cache-dir",
+              "shortDescription": {
+                "text": "Opengrep Finding: resources.rules.missing-pip-no-cache-dir"
+              },
+              "fullDescription": {
+                "text": "This '$PIP install' is missing '--no-cache-dir'. This flag prevents\npackage archives from being kept around, thereby reducing image size.\nAdd '--no-cache-dir'.\n"
+              },
+              "defaultConfiguration": {
+                "enabled": true,
+                "level": "note"
+              },
+              "help": {
+                "text": "This '$PIP install' is missing '--no-cache-dir'. This flag prevents\npackage archives from being kept around, thereby reducing image size.\nAdd '--no-cache-dir'.\n\n💎 Enable cross-file analysis and Pro rules for free at sg.run/pro",
+                "markdown": "This '$PIP install' is missing '--no-cache-dir'. This flag prevents\npackage archives from being kept around, thereby reducing image size.\nAdd '--no-cache-dir'.\n\n\n#### 💎 Enable cross-file analysis and Pro rules for free at <a href='https://sg.run/pro'>sg.run/pro</a>\n\n<b>References:</b>\n - [https://github.com/hadolint/hadolint/wiki/DL3042](https://github.com/hadolint/hadolint/wiki/DL3042)\n"
+              },
+              "properties": {
+                "precision": "very-high",
+                "tags": [
+                  "resources.rules.missing-pip-no-cache-dir"
+                ]
+              }
+            },
+            {
               "id": "aea67bff-a892-3257-9fa3-25473b4d6424",
               "name": "resources.rules.remove-package-cache",
               "shortDescription": {
@@ -344,30 +368,6 @@
                 "precision": "very-high",
                 "tags": [
                   "resources.rules.use-workdir"
-                ]
-              }
-            },
-            {
-              "id": "2063d2ef-5298-3a14-9485-f83f698873bd",
-              "name": "resources.rules.missing-pip-no-cache-dir",
-              "shortDescription": {
-                "text": "Opengrep Finding: resources.rules.missing-pip-no-cache-dir"
-              },
-              "fullDescription": {
-                "text": "This '$PIP install' is missing '--no-cache-dir'. This flag prevents\npackage archives from being kept around, thereby reducing image size.\nAdd '--no-cache-dir'.\n"
-              },
-              "defaultConfiguration": {
-                "enabled": true,
-                "level": "note"
-              },
-              "help": {
-                "text": "This '$PIP install' is missing '--no-cache-dir'. This flag prevents\npackage archives from being kept around, thereby reducing image size.\nAdd '--no-cache-dir'.\n\n💎 Enable cross-file analysis and Pro rules for free at sg.run/pro",
-                "markdown": "This '$PIP install' is missing '--no-cache-dir'. This flag prevents\npackage archives from being kept around, thereby reducing image size.\nAdd '--no-cache-dir'.\n\n\n#### 💎 Enable cross-file analysis and Pro rules for free at <a href='https://sg.run/pro'>sg.run/pro</a>\n\n<b>References:</b>\n - [https://github.com/hadolint/hadolint/wiki/DL3042](https://github.com/hadolint/hadolint/wiki/DL3042)\n"
-              },
-              "properties": {
-                "precision": "very-high",
-                "tags": [
-                  "resources.rules.missing-pip-no-cache-dir"
                 ]
               }
             },
@@ -517,30 +517,6 @@
               }
             },
             {
-              "id": "2c74793b-1ef8-357c-a5e2-395e573fce62",
-              "name": "resources.rules.missing-image-version",
-              "shortDescription": {
-                "text": "Opengrep Finding: resources.rules.missing-image-version"
-              },
-              "fullDescription": {
-                "text": "Images should be tagged with an explicit version to produce deterministic container images."
-              },
-              "defaultConfiguration": {
-                "enabled": true,
-                "level": "warning"
-              },
-              "help": {
-                "text": "Images should be tagged with an explicit version to produce deterministic container images.\n💎 Enable cross-file analysis and Pro rules for free at sg.run/pro",
-                "markdown": "Images should be tagged with an explicit version to produce deterministic container images.\n\n#### 💎 Enable cross-file analysis and Pro rules for free at <a href='https://sg.run/pro'>sg.run/pro</a>\n\n<b>References:</b>\n - [https://github.com/hadolint/hadolint/wiki/DL3006](https://github.com/hadolint/hadolint/wiki/DL3006)\n"
-              },
-              "properties": {
-                "precision": "very-high",
-                "tags": [
-                  "resources.rules.missing-image-version"
-                ]
-              }
-            },
-            {
               "id": "d8f03f8a-4358-3439-9aba-5644f9e329b0",
               "name": "resources.rules.use-workdir",
               "shortDescription": {
@@ -561,6 +537,30 @@
                 "precision": "very-high",
                 "tags": [
                   "resources.rules.use-workdir"
+                ]
+              }
+            },
+            {
+              "id": "2c74793b-1ef8-357c-a5e2-395e573fce62",
+              "name": "resources.rules.missing-image-version",
+              "shortDescription": {
+                "text": "Opengrep Finding: resources.rules.missing-image-version"
+              },
+              "fullDescription": {
+                "text": "Images should be tagged with an explicit version to produce deterministic container images."
+              },
+              "defaultConfiguration": {
+                "enabled": true,
+                "level": "warning"
+              },
+              "help": {
+                "text": "Images should be tagged with an explicit version to produce deterministic container images.\n💎 Enable cross-file analysis and Pro rules for free at sg.run/pro",
+                "markdown": "Images should be tagged with an explicit version to produce deterministic container images.\n\n#### 💎 Enable cross-file analysis and Pro rules for free at <a href='https://sg.run/pro'>sg.run/pro</a>\n\n<b>References:</b>\n - [https://github.com/hadolint/hadolint/wiki/DL3006](https://github.com/hadolint/hadolint/wiki/DL3006)\n"
+              },
+              "properties": {
+                "precision": "very-high",
+                "tags": [
+                  "resources.rules.missing-image-version"
                 ]
               }
             },
@@ -613,30 +613,6 @@
               }
             },
             {
-              "id": "b1d4bd4e-2a68-3b15-9b07-e6dc68b43229",
-              "name": "resources.rules.use-workdir",
-              "shortDescription": {
-                "text": "Opengrep Finding: resources.rules.use-workdir"
-              },
-              "fullDescription": {
-                "text": "Use 'WORKDIR' instead of 'RUN cd ...'. Using 'RUN cd ...' may not work as expected in a conatiner."
-              },
-              "defaultConfiguration": {
-                "enabled": true,
-                "level": "warning"
-              },
-              "help": {
-                "text": "Use 'WORKDIR' instead of 'RUN cd ...'. Using 'RUN cd ...' may not work as expected in a conatiner.\n💎 Enable cross-file analysis and Pro rules for free at sg.run/pro",
-                "markdown": "Use 'WORKDIR' instead of 'RUN cd ...'. Using 'RUN cd ...' may not work as expected in a conatiner.\n\n#### 💎 Enable cross-file analysis and Pro rules for free at <a href='https://sg.run/pro'>sg.run/pro</a>\n\n<b>References:</b>\n - [https://github.com/hadolint/hadolint/wiki/DL3003](https://github.com/hadolint/hadolint/wiki/DL3003)\n"
-              },
-              "properties": {
-                "precision": "very-high",
-                "tags": [
-                  "resources.rules.use-workdir"
-                ]
-              }
-            },
-            {
               "id": "ec39366e-85f9-3cc9-8a8f-93cfa9e3c634",
               "name": "trailofbits.python.automatic-memory-pinning.automatic-memory-pinning",
               "shortDescription": {
@@ -658,6 +634,30 @@
                 "precision": "very-high",
                 "tags": [
                   "trailofbits.python.automatic-memory-pinning.automatic-memory-pinning"
+                ]
+              }
+            },
+            {
+              "id": "b1d4bd4e-2a68-3b15-9b07-e6dc68b43229",
+              "name": "resources.rules.use-workdir",
+              "shortDescription": {
+                "text": "Opengrep Finding: resources.rules.use-workdir"
+              },
+              "fullDescription": {
+                "text": "Use 'WORKDIR' instead of 'RUN cd ...'. Using 'RUN cd ...' may not work as expected in a conatiner."
+              },
+              "defaultConfiguration": {
+                "enabled": true,
+                "level": "warning"
+              },
+              "help": {
+                "text": "Use 'WORKDIR' instead of 'RUN cd ...'. Using 'RUN cd ...' may not work as expected in a conatiner.\n💎 Enable cross-file analysis and Pro rules for free at sg.run/pro",
+                "markdown": "Use 'WORKDIR' instead of 'RUN cd ...'. Using 'RUN cd ...' may not work as expected in a conatiner.\n\n#### 💎 Enable cross-file analysis and Pro rules for free at <a href='https://sg.run/pro'>sg.run/pro</a>\n\n<b>References:</b>\n - [https://github.com/hadolint/hadolint/wiki/DL3003](https://github.com/hadolint/hadolint/wiki/DL3003)\n"
+              },
+              "properties": {
+                "precision": "very-high",
+                "tags": [
+                  "resources.rules.use-workdir"
                 ]
               }
             },
@@ -713,6 +713,31 @@
             },
             {
               "id": "030d22ad-dee7-3a01-bbf4-3395b96f38c1",
+              "name": "trailofbits.python.automatic-memory-pinning.automatic-memory-pinning",
+              "shortDescription": {
+                "text": "Opengrep Finding: trailofbits.python.automatic-memory-pinning.automatic-memory-pinning"
+              },
+              "fullDescription": {
+                "text": "If possible, it is better to rely on automatic pinning in PyTorch to avoid undefined behavior and for efficiency"
+              },
+              "defaultConfiguration": {
+                "enabled": true,
+                "level": "warning"
+              },
+              "helpUri": "https://semgrep.dev/r/trailofbits.python.automatic-memory-pinning.automatic-memory-pinning",
+              "help": {
+                "text": "If possible, it is better to rely on automatic pinning in PyTorch to avoid undefined behavior and for efficiency\n💎 Enable cross-file analysis and Pro rules for free at sg.run/pro",
+                "markdown": "If possible, it is better to rely on automatic pinning in PyTorch to avoid undefined behavior and for efficiency\n\n#### 💎 Enable cross-file analysis and Pro rules for free at <a href='https://sg.run/pro'>sg.run/pro</a>\n\n<b>References:</b>\n - [Semgrep Rule](https://semgrep.dev/r/trailofbits.python.automatic-memory-pinning.automatic-memory-pinning)\n - [https://pytorch.org/docs/stable/data.html#memory-pinning](https://pytorch.org/docs/stable/data.html#memory-pinning)\n"
+              },
+              "properties": {
+                "precision": "very-high",
+                "tags": [
+                  "trailofbits.python.automatic-memory-pinning.automatic-memory-pinning"
+                ]
+              }
+            },
+            {
+              "id": "df9e80f7-d758-3413-9b8b-ffc59b8bd797",
               "name": "trailofbits.python.automatic-memory-pinning.automatic-memory-pinning",
               "shortDescription": {
                 "text": "Opengrep Finding: trailofbits.python.automatic-memory-pinning.automatic-memory-pinning"
@@ -987,7 +1012,7 @@
               }
             },
             {
-              "id": "ef1f2de3-9a7c-3ac3-b7a1-2fbb0ccf6e22",
+              "id": "cf5cefb3-e666-31a0-83e8-933324cf7845",
               "name": "trailofbits.python.automatic-memory-pinning.automatic-memory-pinning",
               "shortDescription": {
                 "text": "Opengrep Finding: trailofbits.python.automatic-memory-pinning.automatic-memory-pinning"
@@ -1012,7 +1037,7 @@
               }
             },
             {
-              "id": "cf5cefb3-e666-31a0-83e8-933324cf7845",
+              "id": "ef1f2de3-9a7c-3ac3-b7a1-2fbb0ccf6e22",
               "name": "trailofbits.python.automatic-memory-pinning.automatic-memory-pinning",
               "shortDescription": {
                 "text": "Opengrep Finding: trailofbits.python.automatic-memory-pinning.automatic-memory-pinning"
@@ -1288,31 +1313,6 @@
             },
             {
               "id": "c82b01ca-8d5c-30cc-ab49-e39fa9b847bf",
-              "name": "trailofbits.python.automatic-memory-pinning.automatic-memory-pinning",
-              "shortDescription": {
-                "text": "Opengrep Finding: trailofbits.python.automatic-memory-pinning.automatic-memory-pinning"
-              },
-              "fullDescription": {
-                "text": "If possible, it is better to rely on automatic pinning in PyTorch to avoid undefined behavior and for efficiency"
-              },
-              "defaultConfiguration": {
-                "enabled": true,
-                "level": "warning"
-              },
-              "helpUri": "https://semgrep.dev/r/trailofbits.python.automatic-memory-pinning.automatic-memory-pinning",
-              "help": {
-                "text": "If possible, it is better to rely on automatic pinning in PyTorch to avoid undefined behavior and for efficiency\n💎 Enable cross-file analysis and Pro rules for free at sg.run/pro",
-                "markdown": "If possible, it is better to rely on automatic pinning in PyTorch to avoid undefined behavior and for efficiency\n\n#### 💎 Enable cross-file analysis and Pro rules for free at <a href='https://sg.run/pro'>sg.run/pro</a>\n\n<b>References:</b>\n - [Semgrep Rule](https://semgrep.dev/r/trailofbits.python.automatic-memory-pinning.automatic-memory-pinning)\n - [https://pytorch.org/docs/stable/data.html#memory-pinning](https://pytorch.org/docs/stable/data.html#memory-pinning)\n"
-              },
-              "properties": {
-                "precision": "very-high",
-                "tags": [
-                  "trailofbits.python.automatic-memory-pinning.automatic-memory-pinning"
-                ]
-              }
-            },
-            {
-              "id": "96216313-ab2b-3f5c-9413-eadfed512a82",
               "name": "trailofbits.python.automatic-memory-pinning.automatic-memory-pinning",
               "shortDescription": {
                 "text": "Opengrep Finding: trailofbits.python.automatic-memory-pinning.automatic-memory-pinning"
@@ -1684,30 +1684,6 @@
               }
             },
             {
-              "id": "612cc23a-c0fc-33f8-a080-72aa6dece707",
-              "name": "resources.rules.dlint-catastrophic-redos",
-              "shortDescription": {
-                "text": "Opengrep Finding: resources.rules.dlint-catastrophic-redos"
-              },
-              "fullDescription": {
-                "text": "Regex `$X` may be vulnerable to catastrophic backtracking, which may lead to denial of service attacks. (This rule only matches regex usage, not actual REDoS patterns. For full detection, use Semgrep Pro Engine.)"
-              },
-              "defaultConfiguration": {
-                "enabled": true,
-                "level": "error"
-              },
-              "help": {
-                "text": "Regex `$X` may be vulnerable to catastrophic backtracking, which may lead to denial of service attacks. (This rule only matches regex usage, not actual REDoS patterns. For full detection, use Semgrep Pro Engine.)\n💎 Enable cross-file analysis and Pro rules for free at sg.run/pro",
-                "markdown": "Regex `$X` may be vulnerable to catastrophic backtracking, which may lead to denial of service attacks. (This rule only matches regex usage, not actual REDoS patterns. For full detection, use Semgrep Pro Engine.)\n\n#### 💎 Enable cross-file analysis and Pro rules for free at <a href='https://sg.run/pro'>sg.run/pro</a>\n\n<b>References:</b>\n - [https://r2c.dev/blog/2020/finding-python-redos-bugs-at-scale-using-dlint-and-r2c/](https://r2c.dev/blog/2020/finding-python-redos-bugs-at-scale-using-dlint-and-r2c/)\n - [https://r2c.dev/blog/2020/improving-redos-detection-with-dlint-and-r2c/](https://r2c.dev/blog/2020/improving-redos-detection-with-dlint-and-r2c/)\n"
-              },
-              "properties": {
-                "precision": "very-high",
-                "tags": [
-                  "resources.rules.dlint-catastrophic-redos"
-                ]
-              }
-            },
-            {
               "id": "7d7caee3-8cc2-3d49-a995-ae3bd818bb12",
               "name": "python.lang.security.audit.non-literal-import.non-literal-import",
               "shortDescription": {
@@ -1729,6 +1705,30 @@
                 "precision": "very-high",
                 "tags": [
                   "python.lang.security.audit.non-literal-import.non-literal-import"
+                ]
+              }
+            },
+            {
+              "id": "612cc23a-c0fc-33f8-a080-72aa6dece707",
+              "name": "resources.rules.dlint-catastrophic-redos",
+              "shortDescription": {
+                "text": "Opengrep Finding: resources.rules.dlint-catastrophic-redos"
+              },
+              "fullDescription": {
+                "text": "Regex `$X` may be vulnerable to catastrophic backtracking, which may lead to denial of service attacks. (This rule only matches regex usage, not actual REDoS patterns. For full detection, use Semgrep Pro Engine.)"
+              },
+              "defaultConfiguration": {
+                "enabled": true,
+                "level": "error"
+              },
+              "help": {
+                "text": "Regex `$X` may be vulnerable to catastrophic backtracking, which may lead to denial of service attacks. (This rule only matches regex usage, not actual REDoS patterns. For full detection, use Semgrep Pro Engine.)\n💎 Enable cross-file analysis and Pro rules for free at sg.run/pro",
+                "markdown": "Regex `$X` may be vulnerable to catastrophic backtracking, which may lead to denial of service attacks. (This rule only matches regex usage, not actual REDoS patterns. For full detection, use Semgrep Pro Engine.)\n\n#### 💎 Enable cross-file analysis and Pro rules for free at <a href='https://sg.run/pro'>sg.run/pro</a>\n\n<b>References:</b>\n - [https://r2c.dev/blog/2020/finding-python-redos-bugs-at-scale-using-dlint-and-r2c/](https://r2c.dev/blog/2020/finding-python-redos-bugs-at-scale-using-dlint-and-r2c/)\n - [https://r2c.dev/blog/2020/improving-redos-detection-with-dlint-and-r2c/](https://r2c.dev/blog/2020/improving-redos-detection-with-dlint-and-r2c/)\n"
+              },
+              "properties": {
+                "precision": "very-high",
+                "tags": [
+                  "resources.rules.dlint-catastrophic-redos"
                 ]
               }
             },
@@ -1783,31 +1783,6 @@
               }
             },
             {
-              "id": "05122bab-9ec4-3167-8e7c-179f69eec547",
-              "name": "trailofbits.python.automatic-memory-pinning.automatic-memory-pinning",
-              "shortDescription": {
-                "text": "Opengrep Finding: trailofbits.python.automatic-memory-pinning.automatic-memory-pinning"
-              },
-              "fullDescription": {
-                "text": "If possible, it is better to rely on automatic pinning in PyTorch to avoid undefined behavior and for efficiency"
-              },
-              "defaultConfiguration": {
-                "enabled": true,
-                "level": "warning"
-              },
-              "helpUri": "https://semgrep.dev/r/trailofbits.python.automatic-memory-pinning.automatic-memory-pinning",
-              "help": {
-                "text": "If possible, it is better to rely on automatic pinning in PyTorch to avoid undefined behavior and for efficiency\n💎 Enable cross-file analysis and Pro rules for free at sg.run/pro",
-                "markdown": "If possible, it is better to rely on automatic pinning in PyTorch to avoid undefined behavior and for efficiency\n\n#### 💎 Enable cross-file analysis and Pro rules for free at <a href='https://sg.run/pro'>sg.run/pro</a>\n\n<b>References:</b>\n - [Semgrep Rule](https://semgrep.dev/r/trailofbits.python.automatic-memory-pinning.automatic-memory-pinning)\n - [https://pytorch.org/docs/stable/data.html#memory-pinning](https://pytorch.org/docs/stable/data.html#memory-pinning)\n"
-              },
-              "properties": {
-                "precision": "very-high",
-                "tags": [
-                  "trailofbits.python.automatic-memory-pinning.automatic-memory-pinning"
-                ]
-              }
-            },
-            {
               "id": "780802a9-2b91-303b-af0b-c82d0c15cd9e",
               "name": "trailofbits.python.automatic-memory-pinning.automatic-memory-pinning",
               "shortDescription": {
@@ -1833,7 +1808,7 @@
               }
             },
             {
-              "id": "afbffd93-7e51-3776-870a-511e827d3375",
+              "id": "05122bab-9ec4-3167-8e7c-179f69eec547",
               "name": "trailofbits.python.automatic-memory-pinning.automatic-memory-pinning",
               "shortDescription": {
                 "text": "Opengrep Finding: trailofbits.python.automatic-memory-pinning.automatic-memory-pinning"
@@ -1858,7 +1833,7 @@
               }
             },
             {
-              "id": "18fdc126-cf0a-3d46-a2da-b9d14981c43f",
+              "id": "afbffd93-7e51-3776-870a-511e827d3375",
               "name": "trailofbits.python.automatic-memory-pinning.automatic-memory-pinning",
               "shortDescription": {
                 "text": "Opengrep Finding: trailofbits.python.automatic-memory-pinning.automatic-memory-pinning"
@@ -1933,6 +1908,31 @@
               }
             },
             {
+              "id": "18fdc126-cf0a-3d46-a2da-b9d14981c43f",
+              "name": "trailofbits.python.automatic-memory-pinning.automatic-memory-pinning",
+              "shortDescription": {
+                "text": "Opengrep Finding: trailofbits.python.automatic-memory-pinning.automatic-memory-pinning"
+              },
+              "fullDescription": {
+                "text": "If possible, it is better to rely on automatic pinning in PyTorch to avoid undefined behavior and for efficiency"
+              },
+              "defaultConfiguration": {
+                "enabled": true,
+                "level": "warning"
+              },
+              "helpUri": "https://semgrep.dev/r/trailofbits.python.automatic-memory-pinning.automatic-memory-pinning",
+              "help": {
+                "text": "If possible, it is better to rely on automatic pinning in PyTorch to avoid undefined behavior and for efficiency\n💎 Enable cross-file analysis and Pro rules for free at sg.run/pro",
+                "markdown": "If possible, it is better to rely on automatic pinning in PyTorch to avoid undefined behavior and for efficiency\n\n#### 💎 Enable cross-file analysis and Pro rules for free at <a href='https://sg.run/pro'>sg.run/pro</a>\n\n<b>References:</b>\n - [Semgrep Rule](https://semgrep.dev/r/trailofbits.python.automatic-memory-pinning.automatic-memory-pinning)\n - [https://pytorch.org/docs/stable/data.html#memory-pinning](https://pytorch.org/docs/stable/data.html#memory-pinning)\n"
+              },
+              "properties": {
+                "precision": "very-high",
+                "tags": [
+                  "trailofbits.python.automatic-memory-pinning.automatic-memory-pinning"
+                ]
+              }
+            },
+            {
               "id": "a8fe89de-6eea-3429-a2b0-b4567d8a2b63",
               "name": "resources.rules.identical-is-comparison",
               "shortDescription": {
@@ -1981,6 +1981,30 @@
               }
             },
             {
+              "id": "d309a958-73c4-31bc-8e20-9169d0d8e4a2",
+              "name": "resources.rules.dlint-catastrophic-redos",
+              "shortDescription": {
+                "text": "Opengrep Finding: resources.rules.dlint-catastrophic-redos"
+              },
+              "fullDescription": {
+                "text": "Regex `$X` may be vulnerable to catastrophic backtracking, which may lead to denial of service attacks. (This rule only matches regex usage, not actual REDoS patterns. For full detection, use Semgrep Pro Engine.)"
+              },
+              "defaultConfiguration": {
+                "enabled": true,
+                "level": "error"
+              },
+              "help": {
+                "text": "Regex `$X` may be vulnerable to catastrophic backtracking, which may lead to denial of service attacks. (This rule only matches regex usage, not actual REDoS patterns. For full detection, use Semgrep Pro Engine.)\n💎 Enable cross-file analysis and Pro rules for free at sg.run/pro",
+                "markdown": "Regex `$X` may be vulnerable to catastrophic backtracking, which may lead to denial of service attacks. (This rule only matches regex usage, not actual REDoS patterns. For full detection, use Semgrep Pro Engine.)\n\n#### 💎 Enable cross-file analysis and Pro rules for free at <a href='https://sg.run/pro'>sg.run/pro</a>\n\n<b>References:</b>\n - [https://r2c.dev/blog/2020/finding-python-redos-bugs-at-scale-using-dlint-and-r2c/](https://r2c.dev/blog/2020/finding-python-redos-bugs-at-scale-using-dlint-and-r2c/)\n - [https://r2c.dev/blog/2020/improving-redos-detection-with-dlint-and-r2c/](https://r2c.dev/blog/2020/improving-redos-detection-with-dlint-and-r2c/)\n"
+              },
+              "properties": {
+                "precision": "very-high",
+                "tags": [
+                  "resources.rules.dlint-catastrophic-redos"
+                ]
+              }
+            },
+            {
               "id": "71e98af5-98cb-3aee-9388-95b038e10ad6",
               "name": "python.lang.security.audit.network.bind.avoid-bind-to-all-interfaces",
               "shortDescription": {
@@ -2002,30 +2026,6 @@
                 "precision": "very-high",
                 "tags": [
                   "python.lang.security.audit.network.bind.avoid-bind-to-all-interfaces"
-                ]
-              }
-            },
-            {
-              "id": "d309a958-73c4-31bc-8e20-9169d0d8e4a2",
-              "name": "resources.rules.dlint-catastrophic-redos",
-              "shortDescription": {
-                "text": "Opengrep Finding: resources.rules.dlint-catastrophic-redos"
-              },
-              "fullDescription": {
-                "text": "Regex `$X` may be vulnerable to catastrophic backtracking, which may lead to denial of service attacks. (This rule only matches regex usage, not actual REDoS patterns. For full detection, use Semgrep Pro Engine.)"
-              },
-              "defaultConfiguration": {
-                "enabled": true,
-                "level": "error"
-              },
-              "help": {
-                "text": "Regex `$X` may be vulnerable to catastrophic backtracking, which may lead to denial of service attacks. (This rule only matches regex usage, not actual REDoS patterns. For full detection, use Semgrep Pro Engine.)\n💎 Enable cross-file analysis and Pro rules for free at sg.run/pro",
-                "markdown": "Regex `$X` may be vulnerable to catastrophic backtracking, which may lead to denial of service attacks. (This rule only matches regex usage, not actual REDoS patterns. For full detection, use Semgrep Pro Engine.)\n\n#### 💎 Enable cross-file analysis and Pro rules for free at <a href='https://sg.run/pro'>sg.run/pro</a>\n\n<b>References:</b>\n - [https://r2c.dev/blog/2020/finding-python-redos-bugs-at-scale-using-dlint-and-r2c/](https://r2c.dev/blog/2020/finding-python-redos-bugs-at-scale-using-dlint-and-r2c/)\n - [https://r2c.dev/blog/2020/improving-redos-detection-with-dlint-and-r2c/](https://r2c.dev/blog/2020/improving-redos-detection-with-dlint-and-r2c/)\n"
-              },
-              "properties": {
-                "precision": "very-high",
-                "tags": [
-                  "resources.rules.dlint-catastrophic-redos"
                 ]
               }
             },
@@ -2466,7 +2466,7 @@
               }
             },
             {
-              "id": "009c2707-1e3c-30fe-b1b7-3006573c5a66",
+              "id": "e4483caf-6ba3-3e73-8ada-dfac23de2f70",
               "name": "resources.rules.insecure-dl-use",
               "shortDescription": {
                 "text": "Opengrep Finding: resources.rules.insecure-dl-use"
@@ -2490,7 +2490,7 @@
               }
             },
             {
-              "id": "e4483caf-6ba3-3e73-8ada-dfac23de2f70",
+              "id": "009c2707-1e3c-30fe-b1b7-3006573c5a66",
               "name": "resources.rules.insecure-dl-use",
               "shortDescription": {
                 "text": "Opengrep Finding: resources.rules.insecure-dl-use"
@@ -2993,68 +2993,6 @@
       "language": "en-US",
       "results": [
         {
-          "ruleId": "e4d1eb81-d911-3332-ad01-47da2f5d7b66",
-          "kind": "fail",
-          "level": "warning",
-          "message": {
-            "text": "Images should be tagged with an explicit version to produce deterministic container images."
-          },
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "dockers/base-conda/Dockerfile",
-                  "uriBaseId": "%SRCROOT%"
-                },
-                "region": {
-                  "startLine": 17,
-                  "startColumn": 1,
-                  "endLine": 17,
-                  "endColumn": 12,
-                  "snippet": {
-                    "text": "FROM nvidia/cuda:${CUDA_VERSION}-devel-ubuntu20.04"
-                  }
-                }
-              }
-            }
-          ],
-          "fingerprints": {
-            "matchBasedId/v1": "63038b854f8f07aa7cfd5944db8010b07abc1f1466de6ac21a20d7756c4392b010ee9164f52ea5e51e030b113a81b96eb88707edf080dc30ec531ff9c6090d40_0"
-          },
-          "properties": {}
-        },
-        {
-          "ruleId": "6dc48d91-aed0-3e8c-b7e8-0bd3fd0e900d",
-          "kind": "fail",
-          "level": "warning",
-          "message": {
-            "text": "Regex `r'__version__ = [\\d\\.\\w\\'\"]+'` may be vulnerable to catastrophic backtracking, which may lead to denial of service attacks. (This rule only matches regex usage, not actual REDoS patterns. For full detection, use Semgrep Pro Engine.)"
-          },
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": ".actions/assistant.py",
-                  "uriBaseId": "%SRCROOT%"
-                },
-                "region": {
-                  "startLine": 33,
-                  "startColumn": 16,
-                  "endLine": 33,
-                  "endColumn": 90,
-                  "snippet": {
-                    "text": "        init = re.sub(r'__version__ = [\\d\\.\\w\\'\"]+', f'__version__ = \"{now_date}\"', init)"
-                  }
-                }
-              }
-            }
-          ],
-          "fingerprints": {
-            "matchBasedId/v1": "225d1ba075f1725474e268aa479d291611fb42a9c531752a36d9a9a410960e1af9c425033a56b334728aaefba315a6aa60b44ace721f5035ced7034fe57157ee_0"
-          },
-          "properties": {}
-        },
-        {
           "ruleId": "99f64997-2928-35ab-a497-4ff2af25645c",
           "kind": "fail",
           "level": "warning",
@@ -3117,33 +3055,64 @@
           "properties": {}
         },
         {
-          "ruleId": "e4b3d8c8-a5d3-3299-ae1b-e09ba6e0f34f",
+          "ruleId": "6dc48d91-aed0-3e8c-b7e8-0bd3fd0e900d",
           "kind": "fail",
           "level": "warning",
           "message": {
-            "text": "Use 'WORKDIR' instead of 'RUN cd ...'. Using 'RUN cd ...' may not work as expected in a conatiner."
+            "text": "Regex `r'__version__ = [\\d\\.\\w\\'\"]+'` may be vulnerable to catastrophic backtracking, which may lead to denial of service attacks. (This rule only matches regex usage, not actual REDoS patterns. For full detection, use Semgrep Pro Engine.)"
           },
           "locations": [
             {
               "physicalLocation": {
                 "artifactLocation": {
-                  "uri": "dockers/base-cuda/Dockerfile",
+                  "uri": ".actions/assistant.py",
                   "uriBaseId": "%SRCROOT%"
                 },
                 "region": {
-                  "startLine": 94,
-                  "startColumn": 1,
-                  "endLine": 98,
-                  "endColumn": 7,
+                  "startLine": 33,
+                  "startColumn": 16,
+                  "endLine": 33,
+                  "endColumn": 90,
                   "snippet": {
-                    "text": "RUN \\\n    apt-get purge -y cmake && \\\n    wget -q https://github.com/Kitware/CMake/releases/download/v3.20.2/cmake-3.20.2.tar.gz && \\\n    tar -zxvf cmake-3.20.2.tar.gz && \\\n    cd cmake-3.20.2 && \\"
+                    "text": "        init = re.sub(r'__version__ = [\\d\\.\\w\\'\"]+', f'__version__ = \"{now_date}\"', init)"
                   }
                 }
               }
             }
           ],
           "fingerprints": {
-            "matchBasedId/v1": "65373287d7fc79c49535f833b4f3f8e3d2ee2e9b9cd6d7e22faeac017c36c69f4b0a02b045600641969089bbfd2ed3a2b6cafc9ac412e7e5a794f7359f332f3d_0"
+            "matchBasedId/v1": "225d1ba075f1725474e268aa479d291611fb42a9c531752a36d9a9a410960e1af9c425033a56b334728aaefba315a6aa60b44ace721f5035ced7034fe57157ee_0"
+          },
+          "properties": {}
+        },
+        {
+          "ruleId": "e4d1eb81-d911-3332-ad01-47da2f5d7b66",
+          "kind": "fail",
+          "level": "warning",
+          "message": {
+            "text": "Images should be tagged with an explicit version to produce deterministic container images."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "dockers/base-conda/Dockerfile",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "startLine": 17,
+                  "startColumn": 1,
+                  "endLine": 17,
+                  "endColumn": 12,
+                  "snippet": {
+                    "text": "FROM nvidia/cuda:${CUDA_VERSION}-devel-ubuntu20.04"
+                  }
+                }
+              }
+            }
+          ],
+          "fingerprints": {
+            "matchBasedId/v1": "63038b854f8f07aa7cfd5944db8010b07abc1f1466de6ac21a20d7756c4392b010ee9164f52ea5e51e030b113a81b96eb88707edf080dc30ec531ff9c6090d40_0"
           },
           "properties": {}
         },
@@ -3175,6 +3144,37 @@
           ],
           "fingerprints": {
             "matchBasedId/v1": "4978fcb4dc6cd1c7276e0e3a2276b2a0a8c789f946e1597f7a542392f59c9395b2881e506175b80189a943bfc168fa6833907be451e00d39b864bacc5782bb5e_0"
+          },
+          "properties": {}
+        },
+        {
+          "ruleId": "e4b3d8c8-a5d3-3299-ae1b-e09ba6e0f34f",
+          "kind": "fail",
+          "level": "warning",
+          "message": {
+            "text": "Use 'WORKDIR' instead of 'RUN cd ...'. Using 'RUN cd ...' may not work as expected in a conatiner."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "dockers/base-cuda/Dockerfile",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "startLine": 94,
+                  "startColumn": 1,
+                  "endLine": 98,
+                  "endColumn": 7,
+                  "snippet": {
+                    "text": "RUN \\\n    apt-get purge -y cmake && \\\n    wget -q https://github.com/Kitware/CMake/releases/download/v3.20.2/cmake-3.20.2.tar.gz && \\\n    tar -zxvf cmake-3.20.2.tar.gz && \\\n    cd cmake-3.20.2 && \\"
+                  }
+                }
+              }
+            }
+          ],
+          "fingerprints": {
+            "matchBasedId/v1": "65373287d7fc79c49535f833b4f3f8e3d2ee2e9b9cd6d7e22faeac017c36c69f4b0a02b045600641969089bbfd2ed3a2b6cafc9ac412e7e5a794f7359f332f3d_0"
           },
           "properties": {}
         },
@@ -3241,37 +3241,6 @@
           "properties": {}
         },
         {
-          "ruleId": "d5b3270d-2b3a-3285-99a5-2ab7fe7fc7e5",
-          "kind": "fail",
-          "level": "warning",
-          "message": {
-            "text": "The package cache was not deleted after running 'apt-get update', which increases the size of the image. Remove the package cache by appending '&& apt-get clean' at the end of apt-get command chain."
-          },
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "dockers/base-ipu/Dockerfile",
-                  "uriBaseId": "%SRCROOT%"
-                },
-                "region": {
-                  "startLine": 29,
-                  "startColumn": 1,
-                  "endLine": 29,
-                  "endColumn": 19,
-                  "snippet": {
-                    "text": "RUN apt-get update -qq && \\"
-                  }
-                }
-              }
-            }
-          ],
-          "fingerprints": {
-            "matchBasedId/v1": "78e30a03e6e096c985522440e3409fba88cab256501a3fb352ee9baab19885244819b292b1cb41822e75aff1d2b8aa7b215ac9e69fbbc4a424063e6f0bea2efe_0"
-          },
-          "properties": {}
-        },
-        {
           "ruleId": "28617d71-8776-3ac9-967e-ee188e1fb1a8",
           "kind": "fail",
           "level": "warning",
@@ -3299,6 +3268,37 @@
           ],
           "fingerprints": {
             "matchBasedId/v1": "181cbea6f948fffb9b75df3947f3467a34ffa47cd116cddd88cf272721a893a6540bd5d1a12d0fb60789815e39e8d24ef62578ad6d622145f7bb239f84d65233_0"
+          },
+          "properties": {}
+        },
+        {
+          "ruleId": "d5b3270d-2b3a-3285-99a5-2ab7fe7fc7e5",
+          "kind": "fail",
+          "level": "warning",
+          "message": {
+            "text": "The package cache was not deleted after running 'apt-get update', which increases the size of the image. Remove the package cache by appending '&& apt-get clean' at the end of apt-get command chain."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "dockers/base-ipu/Dockerfile",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "startLine": 29,
+                  "startColumn": 1,
+                  "endLine": 29,
+                  "endColumn": 19,
+                  "snippet": {
+                    "text": "RUN apt-get update -qq && \\"
+                  }
+                }
+              }
+            }
+          ],
+          "fingerprints": {
+            "matchBasedId/v1": "78e30a03e6e096c985522440e3409fba88cab256501a3fb352ee9baab19885244819b292b1cb41822e75aff1d2b8aa7b215ac9e69fbbc4a424063e6f0bea2efe_0"
           },
           "properties": {}
         },
@@ -3365,6 +3365,37 @@
           "properties": {}
         },
         {
+          "ruleId": "2063d2ef-5298-3a14-9485-f83f698873bd",
+          "kind": "fail",
+          "level": "warning",
+          "message": {
+            "text": "This 'pip install' is missing '--no-cache-dir'. This flag prevents\npackage archives from being kept around, thereby reducing image size.\nAdd '--no-cache-dir'.\n"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "dockers/base-xla/Dockerfile",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "startLine": 77,
+                  "startColumn": 1,
+                  "endLine": 85,
+                  "endColumn": 22,
+                  "snippet": {
+                    "text": "RUN pip --version && \\\n    pip config set global.cache-dir false && \\\n    conda remove pytorch torchvision && \\\n    # Install Pytorch XLA\n    py_version=${PYTHON_VERSION/./} && \\\n    gsutil cp \"gs://tpu-pytorch/wheels/torch-${XLA_VERSION}-cp${py_version}-cp${py_version}m-linux_x86_64.whl\" . && \\\n    gsutil cp \"gs://tpu-pytorch/wheels/torch_xla-${XLA_VERSION}-cp${py_version}-cp${py_version}m-linux_x86_64.whl\" . && \\\n    gsutil cp \"gs://tpu-pytorch/wheels/torchvision-${XLA_VERSION}-cp${py_version}-cp${py_version}m-linux_x86_64.whl\" . && \\\n    pip install *.whl && \\"
+                  }
+                }
+              }
+            }
+          ],
+          "fingerprints": {
+            "matchBasedId/v1": "53f8b9fd8da3b95c8984e92a76b5b170e6533849748d3cfcb2c0e95110c087ee1fabccee2c8f1dd535f250c41704195b855da56f6e54fcf73241068967caf148_0"
+          },
+          "properties": {}
+        },
+        {
           "ruleId": "aea67bff-a892-3257-9fa3-25473b4d6424",
           "kind": "fail",
           "level": "warning",
@@ -3423,37 +3454,6 @@
           ],
           "fingerprints": {
             "matchBasedId/v1": "a4e31a1c84a88cb31ef7b43c5d37a3d31c506b730764f7d8331ca10cae44a26be6721aeeec39b41bd2a4266e241bb73abf2c38f948382dc7ed615a1975ad7093_0"
-          },
-          "properties": {}
-        },
-        {
-          "ruleId": "2063d2ef-5298-3a14-9485-f83f698873bd",
-          "kind": "fail",
-          "level": "warning",
-          "message": {
-            "text": "This 'pip install' is missing '--no-cache-dir'. This flag prevents\npackage archives from being kept around, thereby reducing image size.\nAdd '--no-cache-dir'.\n"
-          },
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "dockers/base-xla/Dockerfile",
-                  "uriBaseId": "%SRCROOT%"
-                },
-                "region": {
-                  "startLine": 77,
-                  "startColumn": 1,
-                  "endLine": 85,
-                  "endColumn": 22,
-                  "snippet": {
-                    "text": "RUN pip --version && \\\n    pip config set global.cache-dir false && \\\n    conda remove pytorch torchvision && \\\n    # Install Pytorch XLA\n    py_version=${PYTHON_VERSION/./} && \\\n    gsutil cp \"gs://tpu-pytorch/wheels/torch-${XLA_VERSION}-cp${py_version}-cp${py_version}m-linux_x86_64.whl\" . && \\\n    gsutil cp \"gs://tpu-pytorch/wheels/torch_xla-${XLA_VERSION}-cp${py_version}-cp${py_version}m-linux_x86_64.whl\" . && \\\n    gsutil cp \"gs://tpu-pytorch/wheels/torchvision-${XLA_VERSION}-cp${py_version}-cp${py_version}m-linux_x86_64.whl\" . && \\\n    pip install *.whl && \\"
-                  }
-                }
-              }
-            }
-          ],
-          "fingerprints": {
-            "matchBasedId/v1": "53f8b9fd8da3b95c8984e92a76b5b170e6533849748d3cfcb2c0e95110c087ee1fabccee2c8f1dd535f250c41704195b855da56f6e54fcf73241068967caf148_0"
           },
           "properties": {}
         },
@@ -3644,37 +3644,6 @@
           "properties": {}
         },
         {
-          "ruleId": "2c74793b-1ef8-357c-a5e2-395e573fce62",
-          "kind": "fail",
-          "level": "warning",
-          "message": {
-            "text": "Images should be tagged with an explicit version to produce deterministic container images."
-          },
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "dockers/release/Dockerfile",
-                  "uriBaseId": "%SRCROOT%"
-                },
-                "region": {
-                  "startLine": 18,
-                  "startColumn": 2,
-                  "endLine": 18,
-                  "endColumn": 23,
-                  "snippet": {
-                    "text": "#FROM pytorchlightning/pytorch_lightning:base-cuda-py${PYTHON_VERSION}-torch${PYTORCH_VERSION}"
-                  }
-                }
-              }
-            }
-          ],
-          "fingerprints": {
-            "matchBasedId/v1": "f0020d78e342d006840c7b2cf5bded0810b8a891dc15b14605210b7902f552a53b2451749fc8c744f0f40d0551b5edcf90c4ef01f0314146a66981bb6fde0c9e_0"
-          },
-          "properties": {}
-        },
-        {
           "ruleId": "d8f03f8a-4358-3439-9aba-5644f9e329b0",
           "kind": "fail",
           "level": "warning",
@@ -3702,6 +3671,37 @@
           ],
           "fingerprints": {
             "matchBasedId/v1": "eeb6d2e007e8c20ebc611dcaecd63377a109818ccd68bd6e4104997721866adb76177fd6e088a0e922348c8b30626a022e86ce5a535f0a93b83ce19155b0a4ff_0"
+          },
+          "properties": {}
+        },
+        {
+          "ruleId": "2c74793b-1ef8-357c-a5e2-395e573fce62",
+          "kind": "fail",
+          "level": "warning",
+          "message": {
+            "text": "Images should be tagged with an explicit version to produce deterministic container images."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "dockers/release/Dockerfile",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "startLine": 18,
+                  "startColumn": 2,
+                  "endLine": 18,
+                  "endColumn": 23,
+                  "snippet": {
+                    "text": "#FROM pytorchlightning/pytorch_lightning:base-cuda-py${PYTHON_VERSION}-torch${PYTORCH_VERSION}"
+                  }
+                }
+              }
+            }
+          ],
+          "fingerprints": {
+            "matchBasedId/v1": "f0020d78e342d006840c7b2cf5bded0810b8a891dc15b14605210b7902f552a53b2451749fc8c744f0f40d0551b5edcf90c4ef01f0314146a66981bb6fde0c9e_0"
           },
           "properties": {}
         },
@@ -3768,37 +3768,6 @@
           "properties": {}
         },
         {
-          "ruleId": "b1d4bd4e-2a68-3b15-9b07-e6dc68b43229",
-          "kind": "fail",
-          "level": "warning",
-          "message": {
-            "text": "Use 'WORKDIR' instead of 'RUN cd ...'. Using 'RUN cd ...' may not work as expected in a conatiner."
-          },
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "dockers/tpu-tests/Dockerfile",
-                  "uriBaseId": "%SRCROOT%"
-                },
-                "region": {
-                  "startLine": 25,
-                  "startColumn": 1,
-                  "endLine": 25,
-                  "endColumn": 7,
-                  "snippet": {
-                    "text": "RUN cd pytorch-lightning && \\"
-                  }
-                }
-              }
-            }
-          ],
-          "fingerprints": {
-            "matchBasedId/v1": "321dad20edcf4d10072a00fa6c2cd5b9950097796f1112effd677603a12a330e9240a8a5d89263f7e544e31ba4cfba2789455aa50beb8410a68ce093c133d51d_0"
-          },
-          "properties": {}
-        },
-        {
           "ruleId": "ec39366e-85f9-3cc9-8a8f-93cfa9e3c634",
           "kind": "fail",
           "level": "warning",
@@ -3826,6 +3795,37 @@
           ],
           "fingerprints": {
             "matchBasedId/v1": "1a351b0e38575beafc5de3b3eebbc64f212d3fa0fbc72d57886440702ed60064f5acf5cca690e810e1e6c572be3d26fcf232aaef1451666e51f867a9e750a845_0"
+          },
+          "properties": {}
+        },
+        {
+          "ruleId": "b1d4bd4e-2a68-3b15-9b07-e6dc68b43229",
+          "kind": "fail",
+          "level": "warning",
+          "message": {
+            "text": "Use 'WORKDIR' instead of 'RUN cd ...'. Using 'RUN cd ...' may not work as expected in a conatiner."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "dockers/tpu-tests/Dockerfile",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "startLine": 25,
+                  "startColumn": 1,
+                  "endLine": 25,
+                  "endColumn": 7,
+                  "snippet": {
+                    "text": "RUN cd pytorch-lightning && \\"
+                  }
+                }
+              }
+            }
+          ],
+          "fingerprints": {
+            "matchBasedId/v1": "321dad20edcf4d10072a00fa6c2cd5b9950097796f1112effd677603a12a330e9240a8a5d89263f7e544e31ba4cfba2789455aa50beb8410a68ce093c133d51d_0"
           },
           "properties": {}
         },
@@ -3892,7 +3892,7 @@
           "properties": {}
         },
         {
-          "ruleId": "df9e80f7-d758-3413-9b8b-ffc59b8bd797",
+          "ruleId": "030d22ad-dee7-3a01-bbf4-3395b96f38c1",
           "kind": "fail",
           "level": "warning",
           "message": {
@@ -3902,23 +3902,23 @@
             {
               "physicalLocation": {
                 "artifactLocation": {
-                  "uri": "legacy/simple_classif_training.py",
+                  "uri": "pl_examples/basic_examples/autoencoder.py",
                   "uriBaseId": "%SRCROOT%"
                 },
                 "region": {
-                  "startLine": 83,
-                  "startColumn": 16,
-                  "endLine": 85,
-                  "endColumn": 10,
+                  "startLine": 92,
+                  "startColumn": 31,
+                  "endLine": 92,
+                  "endColumn": 100,
                   "snippet": {
-                    "text": "        return DataLoader(\n            SklearnDataset(self.x_predict, self.y_predict, self._x_type, self._y_type), batch_size=self.batch_size\n        )"
+                    "text": "        images, _ = next(iter(DataLoader(trainer.datamodule.mnist_val, batch_size=self.num_samples)))"
                   }
                 }
               }
             }
           ],
           "fingerprints": {
-            "matchBasedId/v1": "1a351b0e38575beafc5de3b3eebbc64f212d3fa0fbc72d57886440702ed60064f5acf5cca690e810e1e6c572be3d26fcf232aaef1451666e51f867a9e750a845_3"
+            "matchBasedId/v1": "cef7dd4218d920f3d9cbb8f5a8ea4b880d17e1a9c426d68be2e41bf83987e65b455ad459c6a8323a9fe6a84fd2caeff6c633392503adbca3947ea14f1874ea59_0"
           },
           "properties": {}
         },
@@ -4233,37 +4233,6 @@
           "properties": {}
         },
         {
-          "ruleId": "ef1f2de3-9a7c-3ac3-b7a1-2fbb0ccf6e22",
-          "kind": "fail",
-          "level": "warning",
-          "message": {
-            "text": "If possible, it is better to rely on automatic pinning in PyTorch to avoid undefined behavior and for efficiency"
-          },
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "pl_examples/basic_examples/mnist_examples/image_classifier_1_pytorch.py",
-                  "uriBaseId": "%SRCROOT%"
-                },
-                "region": {
-                  "startLine": 69,
-                  "startColumn": 19,
-                  "endLine": 69,
-                  "endColumn": 91,
-                  "snippet": {
-                    "text": "    test_loader = torch.utils.data.DataLoader(test_dataset, batch_size=hparams.batch_size)"
-                  }
-                }
-              }
-            }
-          ],
-          "fingerprints": {
-            "matchBasedId/v1": "a19ef7b9582d91a739ec34f1cfffdd664895f7706f631d1a08b623bcf5239ae1a52e8f9cdb3d50e945920bd6f7d8753373cda8fa56f57c3fba0f4e2f86f52ed0_1"
-          },
-          "properties": {}
-        },
-        {
           "ruleId": "cf5cefb3-e666-31a0-83e8-933324cf7845",
           "kind": "fail",
           "level": "warning",
@@ -4291,6 +4260,37 @@
           ],
           "fingerprints": {
             "matchBasedId/v1": "a19ef7b9582d91a739ec34f1cfffdd664895f7706f631d1a08b623bcf5239ae1a52e8f9cdb3d50e945920bd6f7d8753373cda8fa56f57c3fba0f4e2f86f52ed0_0"
+          },
+          "properties": {}
+        },
+        {
+          "ruleId": "ef1f2de3-9a7c-3ac3-b7a1-2fbb0ccf6e22",
+          "kind": "fail",
+          "level": "warning",
+          "message": {
+            "text": "If possible, it is better to rely on automatic pinning in PyTorch to avoid undefined behavior and for efficiency"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "pl_examples/basic_examples/mnist_examples/image_classifier_1_pytorch.py",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "startLine": 69,
+                  "startColumn": 19,
+                  "endLine": 69,
+                  "endColumn": 91,
+                  "snippet": {
+                    "text": "    test_loader = torch.utils.data.DataLoader(test_dataset, batch_size=hparams.batch_size)"
+                  }
+                }
+              }
+            }
+          ],
+          "fingerprints": {
+            "matchBasedId/v1": "a19ef7b9582d91a739ec34f1cfffdd664895f7706f631d1a08b623bcf5239ae1a52e8f9cdb3d50e945920bd6f7d8753373cda8fa56f57c3fba0f4e2f86f52ed0_1"
           },
           "properties": {}
         },
@@ -4601,37 +4601,6 @@
           ],
           "fingerprints": {
             "matchBasedId/v1": "c3e7b12c9f4018d5a73c971fbd3df91f9fb9bcf3d06ef620fc1b8fb32512b90842b3afcde26e6c0cffb1b94759d1462704b0fa83fa2504f271cb07dc0471af8c_1"
-          },
-          "properties": {}
-        },
-        {
-          "ruleId": "c82b01ca-8d5c-30cc-ab49-e39fa9b847bf",
-          "kind": "fail",
-          "level": "warning",
-          "message": {
-            "text": "If possible, it is better to rely on automatic pinning in PyTorch to avoid undefined behavior and for efficiency"
-          },
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "pl_examples/bug_report/bug_report_model.py",
-                  "uriBaseId": "%SRCROOT%"
-                },
-                "region": {
-                  "startLine": 48,
-                  "startColumn": 16,
-                  "endLine": 48,
-                  "endColumn": 63,
-                  "snippet": {
-                    "text": "    val_data = DataLoader(RandomDataset(32, 64), batch_size=2)"
-                  }
-                }
-              }
-            }
-          ],
-          "fingerprints": {
-            "matchBasedId/v1": "c9158b25f67251c5f888b42de2be626957b554272454e4199f2690f27ae3c644be5408f4f9386f22487c87bf4f04d771eba9f285d41889d31c6ce9fc14bff253_1"
           },
           "properties": {}
         },
@@ -5101,37 +5070,6 @@
           "properties": {}
         },
         {
-          "ruleId": "612cc23a-c0fc-33f8-a080-72aa6dece707",
-          "kind": "fail",
-          "level": "warning",
-          "message": {
-            "text": "Regex `r\"(\\{.*?)[:\\}]\"` may be vulnerable to catastrophic backtracking, which may lead to denial of service attacks. (This rule only matches regex usage, not actual REDoS patterns. For full detection, use Semgrep Pro Engine.)"
-          },
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "pytorch_lightning/callbacks/model_checkpoint.py",
-                  "uriBaseId": "%SRCROOT%"
-                },
-                "region": {
-                  "startLine": 512,
-                  "startColumn": 18,
-                  "endLine": 512,
-                  "endColumn": 55,
-                  "snippet": {
-                    "text": "        groups = re.findall(r\"(\\{.*?)[:\\}]\", filename)"
-                  }
-                }
-              }
-            }
-          ],
-          "fingerprints": {
-            "matchBasedId/v1": "50a02b32e9ecb59876ff9be071270f657eb1e0a5115d897b814d228a895e977b48f60b510139d975d96b4b2538108da3b4fdd68096b6ee9a7a5895c402c500a4_0"
-          },
-          "properties": {}
-        },
-        {
           "ruleId": "7d7caee3-8cc2-3d49-a995-ae3bd818bb12",
           "kind": "fail",
           "level": "warning",
@@ -5159,6 +5097,37 @@
           ],
           "fingerprints": {
             "matchBasedId/v1": "bc0ce127a146ff964357b21bed1067057af0538632793fc5b0fd1da3467b666570ecacd192e44d5c13e4246d3d42c083af8999699303b020ebb228fa6656dc65_0"
+          },
+          "properties": {}
+        },
+        {
+          "ruleId": "612cc23a-c0fc-33f8-a080-72aa6dece707",
+          "kind": "fail",
+          "level": "warning",
+          "message": {
+            "text": "Regex `r\"(\\{.*?)[:\\}]\"` may be vulnerable to catastrophic backtracking, which may lead to denial of service attacks. (This rule only matches regex usage, not actual REDoS patterns. For full detection, use Semgrep Pro Engine.)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "pytorch_lightning/callbacks/model_checkpoint.py",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "startLine": 512,
+                  "startColumn": 18,
+                  "endLine": 512,
+                  "endColumn": 55,
+                  "snippet": {
+                    "text": "        groups = re.findall(r\"(\\{.*?)[:\\}]\", filename)"
+                  }
+                }
+              }
+            }
+          ],
+          "fingerprints": {
+            "matchBasedId/v1": "50a02b32e9ecb59876ff9be071270f657eb1e0a5115d897b814d228a895e977b48f60b510139d975d96b4b2538108da3b4fdd68096b6ee9a7a5895c402c500a4_0"
           },
           "properties": {}
         },
@@ -5225,37 +5194,6 @@
           "properties": {}
         },
         {
-          "ruleId": "05122bab-9ec4-3167-8e7c-179f69eec547",
-          "kind": "fail",
-          "level": "warning",
-          "message": {
-            "text": "If possible, it is better to rely on automatic pinning in PyTorch to avoid undefined behavior and for efficiency"
-          },
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "pytorch_lightning/demos/boring_classes.py",
-                  "uriBaseId": "%SRCROOT%"
-                },
-                "region": {
-                  "startLine": 145,
-                  "startColumn": 16,
-                  "endLine": 145,
-                  "endColumn": 49,
-                  "snippet": {
-                    "text": "        return DataLoader(RandomDataset(32, 64))"
-                  }
-                }
-              }
-            }
-          ],
-          "fingerprints": {
-            "matchBasedId/v1": "9521e7490d47169f4c19da0dcecba05632a9a43be6a46246aaf91cc49baf19d682308a8bbe2eb8e50e3f716743dc44ea4ac8c217627dbc8a886a1fdc3991551a_3"
-          },
-          "properties": {}
-        },
-        {
           "ruleId": "780802a9-2b91-303b-af0b-c82d0c15cd9e",
           "kind": "fail",
           "level": "warning",
@@ -5287,6 +5225,37 @@
           "properties": {}
         },
         {
+          "ruleId": "05122bab-9ec4-3167-8e7c-179f69eec547",
+          "kind": "fail",
+          "level": "warning",
+          "message": {
+            "text": "If possible, it is better to rely on automatic pinning in PyTorch to avoid undefined behavior and for efficiency"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "pytorch_lightning/demos/boring_classes.py",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "startLine": 145,
+                  "startColumn": 16,
+                  "endLine": 145,
+                  "endColumn": 49,
+                  "snippet": {
+                    "text": "        return DataLoader(RandomDataset(32, 64))"
+                  }
+                }
+              }
+            }
+          ],
+          "fingerprints": {
+            "matchBasedId/v1": "9521e7490d47169f4c19da0dcecba05632a9a43be6a46246aaf91cc49baf19d682308a8bbe2eb8e50e3f716743dc44ea4ac8c217627dbc8a886a1fdc3991551a_3"
+          },
+          "properties": {}
+        },
+        {
           "ruleId": "afbffd93-7e51-3776-870a-511e827d3375",
           "kind": "fail",
           "level": "warning",
@@ -5314,37 +5283,6 @@
           ],
           "fingerprints": {
             "matchBasedId/v1": "9521e7490d47169f4c19da0dcecba05632a9a43be6a46246aaf91cc49baf19d682308a8bbe2eb8e50e3f716743dc44ea4ac8c217627dbc8a886a1fdc3991551a_4"
-          },
-          "properties": {}
-        },
-        {
-          "ruleId": "18fdc126-cf0a-3d46-a2da-b9d14981c43f",
-          "kind": "fail",
-          "level": "warning",
-          "message": {
-            "text": "If possible, it is better to rely on automatic pinning in PyTorch to avoid undefined behavior and for efficiency"
-          },
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "pytorch_lightning/demos/boring_classes.py",
-                  "uriBaseId": "%SRCROOT%"
-                },
-                "region": {
-                  "startLine": 173,
-                  "startColumn": 16,
-                  "endLine": 173,
-                  "endColumn": 43,
-                  "snippet": {
-                    "text": "        return DataLoader(self.random_val)"
-                  }
-                }
-              }
-            }
-          ],
-          "fingerprints": {
-            "matchBasedId/v1": "9521e7490d47169f4c19da0dcecba05632a9a43be6a46246aaf91cc49baf19d682308a8bbe2eb8e50e3f716743dc44ea4ac8c217627dbc8a886a1fdc3991551a_5"
           },
           "properties": {}
         },
@@ -5411,6 +5349,37 @@
           "properties": {}
         },
         {
+          "ruleId": "18fdc126-cf0a-3d46-a2da-b9d14981c43f",
+          "kind": "fail",
+          "level": "warning",
+          "message": {
+            "text": "If possible, it is better to rely on automatic pinning in PyTorch to avoid undefined behavior and for efficiency"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "pytorch_lightning/demos/boring_classes.py",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "startLine": 173,
+                  "startColumn": 16,
+                  "endLine": 173,
+                  "endColumn": 43,
+                  "snippet": {
+                    "text": "        return DataLoader(self.random_val)"
+                  }
+                }
+              }
+            }
+          ],
+          "fingerprints": {
+            "matchBasedId/v1": "9521e7490d47169f4c19da0dcecba05632a9a43be6a46246aaf91cc49baf19d682308a8bbe2eb8e50e3f716743dc44ea4ac8c217627dbc8a886a1fdc3991551a_5"
+          },
+          "properties": {}
+        },
+        {
           "ruleId": "a8fe89de-6eea-3429-a2b0-b4567d8a2b63",
           "kind": "fail",
           "level": "warning",
@@ -5473,37 +5442,6 @@
           "properties": {}
         },
         {
-          "ruleId": "71e98af5-98cb-3aee-9388-95b038e10ad6",
-          "kind": "fail",
-          "level": "warning",
-          "message": {
-            "text": "Running `socket.bind` to 0.0.0.0, or empty string could unexpectedly expose the server publicly as it binds to all available interfaces. Consider instead getting correct address from an environment variable or configuration file."
-          },
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "pytorch_lightning/plugins/environments/lightning_environment.py",
-                  "uriBaseId": "%SRCROOT%"
-                },
-                "region": {
-                  "startLine": 97,
-                  "startColumn": 5,
-                  "endLine": 98,
-                  "endColumn": 20,
-                  "snippet": {
-                    "text": "    s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)\n    s.bind((\"\", 0))"
-                  }
-                }
-              }
-            }
-          ],
-          "fingerprints": {
-            "matchBasedId/v1": "541a14b55cd362c532a9be727dcd0a2b09229c20bb9551f379788abef62a91346f3b8137b1eacf180efce39870fbdff145bcd99a4542dffa9abb897ce7282fcc_0"
-          },
-          "properties": {}
-        },
-        {
           "ruleId": "d309a958-73c4-31bc-8e20-9169d0d8e4a2",
           "kind": "fail",
           "level": "warning",
@@ -5531,6 +5469,37 @@
           ],
           "fingerprints": {
             "matchBasedId/v1": "fa031babcfaf3a820e1897aced5f8aeca08eb5513b4557215c8d8a0f522a83a743aac6750ed2866e3c1c48a5f84dd0e79b9b4d7b4ecbe179767a05463ab71744_0"
+          },
+          "properties": {}
+        },
+        {
+          "ruleId": "71e98af5-98cb-3aee-9388-95b038e10ad6",
+          "kind": "fail",
+          "level": "warning",
+          "message": {
+            "text": "Running `socket.bind` to 0.0.0.0, or empty string could unexpectedly expose the server publicly as it binds to all available interfaces. Consider instead getting correct address from an environment variable or configuration file."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "pytorch_lightning/plugins/environments/lightning_environment.py",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "startLine": 97,
+                  "startColumn": 5,
+                  "endLine": 98,
+                  "endColumn": 20,
+                  "snippet": {
+                    "text": "    s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)\n    s.bind((\"\", 0))"
+                  }
+                }
+              }
+            }
+          ],
+          "fingerprints": {
+            "matchBasedId/v1": "541a14b55cd362c532a9be727dcd0a2b09229c20bb9551f379788abef62a91346f3b8137b1eacf180efce39870fbdff145bcd99a4542dffa9abb897ce7282fcc_0"
           },
           "properties": {}
         },
@@ -6093,37 +6062,6 @@
           "properties": {}
         },
         {
-          "ruleId": "009c2707-1e3c-30fe-b1b7-3006573c5a66",
-          "kind": "fail",
-          "level": "warning",
-          "message": {
-            "text": "The Python 'dl' module may cause segmentation faults or other incorrect behavior"
-          },
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "pytorch_lightning/utilities/auto_restart.py",
-                  "uriBaseId": "%SRCROOT%"
-                },
-                "region": {
-                  "startLine": 446,
-                  "startColumn": 33,
-                  "endLine": 446,
-                  "endColumn": 47,
-                  "snippet": {
-                    "text": "                    num_workers=dl.num_workers,"
-                  }
-                }
-              }
-            }
-          ],
-          "fingerprints": {
-            "matchBasedId/v1": "9432830bab6a4929fe971123624accf51f0046e31d38f1abd96088e2c5327f9a0afb64efd6a209ab46658cea5eb1476c52b7cdb72c8ac1e923a42df84f70a135_0"
-          },
-          "properties": {}
-        },
-        {
           "ruleId": "e4483caf-6ba3-3e73-8ada-dfac23de2f70",
           "kind": "fail",
           "level": "warning",
@@ -6151,6 +6089,37 @@
           ],
           "fingerprints": {
             "matchBasedId/v1": "e999156f2aac43c14d0300c3ee00514d274b70b511e725bf63985140015e7e0740303cda653e76ebc3b97fa8426e9ea9934b278e54972d46a944493813548652_0"
+          },
+          "properties": {}
+        },
+        {
+          "ruleId": "009c2707-1e3c-30fe-b1b7-3006573c5a66",
+          "kind": "fail",
+          "level": "warning",
+          "message": {
+            "text": "The Python 'dl' module may cause segmentation faults or other incorrect behavior"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "pytorch_lightning/utilities/auto_restart.py",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "startLine": 446,
+                  "startColumn": 33,
+                  "endLine": 446,
+                  "endColumn": 47,
+                  "snippet": {
+                    "text": "                    num_workers=dl.num_workers,"
+                  }
+                }
+              }
+            }
+          ],
+          "fingerprints": {
+            "matchBasedId/v1": "9432830bab6a4929fe971123624accf51f0046e31d38f1abd96088e2c5327f9a0afb64efd6a209ab46658cea5eb1476c52b7cdb72c8ac1e923a42df84f70a135_0"
           },
           "properties": {}
         },
